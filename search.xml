@@ -7,6 +7,9 @@
       <categories>
         <category>shadowsocks</category>
       </categories>
+      <tags>
+        <tag>shadowsocks</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Github Pages & Hexo 搭建个人blog]]></title>
@@ -15,6 +18,9 @@
       <categories>
         <category>分享</category>
       </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Hello World]]></title>
