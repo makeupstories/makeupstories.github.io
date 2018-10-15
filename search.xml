@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python——datetime模块]]></title>
+    <url>%2F2018%2F10%2F15%2FPython%E2%80%94%E2%80%94datetime%E6%A8%A1%E5%9D%97%2F</url>
+    <content type="text"><![CDATA[datetimedatetime 主要对时间和日期的处理 获取当前详细时间12345678910111213141516171819202122232425262728&gt;&gt;&gt; import datetime&gt;&gt;&gt; datetime.datetime.now()datetime.datetime(2018, 10, 15, 19, 45, 9, 841259)&gt;&gt;&gt; a = datetime.datetime.now()&gt;&gt;&gt; print(a)2018-10-15 19:45:24.502984 # 获取时间的某一部分&gt;&gt;&gt; print(a.hour)19&gt;&gt;&gt; print(a.year)2018# 替换时间的某一部分&gt;&gt;&gt; a = a.replace(year=2019)&gt;&gt;&gt; print(a)2019-10-15 19:45:24.502984&gt;&gt;&gt; a = datetime.datetime.now()&gt;&gt;&gt; b = datetime.datetime.now()&gt;&gt;&gt; print(a + b) # 不支持的操作类型 + 个人猜测是因为最大只能计算到2038年Traceback (most recent call last): File "&lt;stdin&gt;", line 1, in &lt;module&gt;TypeError: unsupported operand type(s) for +: 'datetime.datetime' and 'datetime.datetime'&gt;&gt;&gt; print(a - b)-1 day, 23:59:52.248296&gt;&gt;&gt; print(b - a)0:00:07.751704]]></content>
+      <categories>
+        <category>Python入门</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python——time模块]]></title>
     <url>%2F2018%2F10%2F15%2FPython%E2%80%94%E2%80%94time%E6%A8%A1%E5%9D%97%2F</url>
     <content type="text"><![CDATA[time与时间相关的一个模块 更多了解：http://www.runoob.com/python3/python3-date-time.html 时间的三类时间戳时间戳是指从 1970年1月1日 0:0:0 开始到现在的秒数，但是1970年之前的日期就无法以此表示了。太遥远的日期也不行，UNIX和Windows只支持到2038年。（不知道有没有更新过） 12345678&gt;&gt;&gt; import time&gt;&gt;&gt; time.time()1539595862.1039639&gt;&gt;&gt; time1 = time.time()&gt;&gt;&gt; time.sleep(10)&gt;&gt;&gt; time2 = time.time()&gt;&gt;&gt; time2 - time110.00250792503357 结构化时间123456789101112131415161718192021&gt;&gt;&gt; time.localtime()# 接收时间戳（1970纪元后经过的浮点秒数）并返回当地时间下的时间元组。time.struct_time(tm_year=2018, tm_mon=10, tm_mday=15, tm_hour=18, tm_min=43, tm_sec=5, tm_wday=0, tm_yday=288, tm_isdst=0)# tm_year 年# tm_mon 月# tm_mday 日# tm_hour 小时# tm_min 分钟# tm_sec 0 到 61 (60或61 是闰秒)# tm_wday 0到6 (0是周一) # tm_yday 一年中的第几天# tm_isdst 夏令时标识符，实行夏令时的时候，tm_isdst为正。不实行夏令时的时候， tm_isdst为0；不了解情况时，tm_isdst()为负。# 单独取值&gt;&gt;&gt; time.localtime().tm_year2018&gt;&gt;&gt; time.localtime().tm_mon10&gt;&gt;&gt; time.gmtime() time.struct_time(tm_year=2018, tm_mon=10, tm_mday=15, tm_hour=10, tm_min=58, tm_sec=45, tm_wday=0, tm_yday=288, tm_isdst=0)# gmtime() 函数将一个时间戳转换为UTC时区（0时区）的struct_time，可选的参数sec表示从1970年1月1日以来的秒数。其默认值为time.time()，函数返回time.struct_time类型的对象。 格式化字符串时间12345&gt;&gt;&gt; time.strftime('%Y-%m-%d %H:%M:%S %p') # 注意大小写不然会报语法错误'2018-10-15 19:01:40 PM'&gt;&gt;&gt;time.strftime('%Y-%m-%d %X %p')'2018-10-15 19:02:11 PM' 三种格式之间的相互转换123456789101112131415# 时间戳转为结构化&gt;&gt;&gt; time.localtime(time.time())time.struct_time(tm_year=2018, tm_mon=10, tm_mday=15, tm_hour=19, tm_min=4, tm_sec=25, tm_wday=0, tm_yday=288, tm_isdst=0)# 结构化转字符串&gt;&gt;&gt; time.strftime('%Y-%m-%d',time.localtime(time.time()))'2018-10-15'# 字符串转为结构化&gt;&gt;&gt; time.strptime('2018-10-15','%Y-%m-%d')time.struct_time(tm_year=2018, tm_mon=10, tm_mday=15, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=0, tm_yday=288, tm_isdst=-1)# 结构化转时间戳&gt;&gt;&gt; time.mktime(time.strptime('2018-10-15','%Y-%m-%d'))1539532800.0 格林威治时间123&gt;&gt;&gt; time.altzone # 返回格林威治西部的夏令时地区的偏移秒数。如果该地区在格林威治东部会返回负值（如西欧，包括英国）。对夏令时启用地区才能使用。-28800 # 暂时我也不知道有啥用 time.ctime([secs])12&gt;&gt;&gt; time.ctime() # 偏外国友人使用的时间格式'Mon Oct 15 19:12:30 2018']]></content>
