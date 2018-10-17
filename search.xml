@@ -1,6 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python——configparser模块]]></title>
+    <url>%2F2018%2F10%2F17%2FPython%E2%80%94%E2%80%94configparser%E6%A8%A1%E5%9D%97%2F</url>
+    <content type="text"><![CDATA[configparser 模块configparser 用于解析配置文件的模块，我们会在配置文件中，放入一些配置程序的信息，通常而言，这些配置信息是我们不需要经常去改动的信息，例如数据文件的路径 DB_PATH 在配置文件中，只有两种内容： section分区 option 选项 通常我们用get功能，从配置文件中获取一个配置选项。 Case12345678910# file: test.cfg# 路径相关的配置[path]db_path = /a/b/c/test.txt# 用户相关的配置[user]name = oOC# 服务相关的配置[server]url = 192.168.0.0 123456789101112131415161718192021222324252627282930313233343536373839404142434445# file: configparser模块.pyimport configparserconfig = configparser.ConfigParser()config.read('test.cfg',encoding='utf-8')# 获取需要的信息# 获取所有的分区print(config.sections())# ['path', 'user', 'server']# 获取所有选项print(config.options('user'))# ['name']# 获取路径print(config.get('path','db_path'))# /a/b/c/test.txt# 获取用户名print(config.get('user','name'))# oOC# get返回的都是字符串类型 如果需要转换类型 # 直接使用get+对应的类型(bool int float)getfloat()getint()getbool()# 是否由某个选项config.has_option()# 是否由某个分区config.has_section()# 返回布尔值# 添加config.add_section("server")config.set("server","url","192.168.1.2")# 删除config.remove_option("user")# 修改config.set("server","url","192.168.1.2")# 写回文件中with open("test.cfg", "wt", encoding="utf-8") as f: config.write(f)]]></content>
+      <categories>
+        <category>Python入门</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python——XML模块]]></title>
+    <url>%2F2018%2F10%2F17%2FPython%E2%80%94%E2%80%94XML%E6%A8%A1%E5%9D%97%2F</url>
+    <content type="text"><![CDATA[XML 模块参考文档链接： 什么是XML 模块？ XML 指可扩展标记语言（EXtensible Markup Language） XML 的设计宗旨是传输数据，而不是显示数据 XML 标签没有被预定义，我们需要自行定义标签 XML 的语法格式12345678910&lt;?xml version="1.0" encoding = "UTF-8"?&gt;&lt;!-- XML 声明文件的可选部分，如果存在需要放在文档的第一行 --&gt;&lt;root&gt; &lt;!-- 根元素 --&gt; &lt;child name = 'ooc'&gt; &lt;!-- 元素 应该还包含 有属性 'category' --&gt; &lt;!--XML 属性值必须加引号 --&gt;&lt;!--在 XML 中，应该尽量避免使用属性。如果信息感觉起来很像数据才使用元素吧--&gt; &lt;subchild&gt;......&lt;/subchild&gt; &lt;!-- 同时，层级必须明确，不可以混乱--&gt; &lt;subchild1&gt;.....&lt;/subchild1&gt; &lt;!-- 同级 --&gt; &lt;/child&gt;&lt;/root&gt; &lt;!--与第三行&lt;root&gt;对应&lt;/root&gt;是关闭标签，必须有这样的一对 --&gt; Case11234567891011121314&lt;bookstore&gt; &lt;book category="CHILDREN"&gt; &lt;title&gt;Harry Potter&lt;/title&gt; &lt;author&gt;J K. Rowling&lt;/author&gt; &lt;year&gt;2005&lt;/year&gt; &lt;price&gt;29.99&lt;/price&gt; &lt;/book&gt; &lt;book category="WEB"&gt; &lt;title&gt;Learning XML&lt;/title&gt; &lt;author&gt;Erik T. Ray&lt;/author&gt; &lt;year&gt;2003&lt;/year&gt; &lt;price&gt;39.95&lt;/price&gt; &lt;/book&gt;&lt;/bookstore&gt; XML 命名规则XML 元素必须遵循以下命名规则： 名称可以包含字母、数字以及其他字符 不能以数字或者标点符号开始 不能以字母xml、XML、Xml等开始 名称不能包含空格 Case212345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758# file: c.xml&lt;studentinfo&gt; &lt;stu1&gt; &lt;name1&gt; 张三 &lt;/name1&gt; &lt;age1&gt; 20 &lt;/age1&gt; &lt;girlfriend11&gt; &lt;name11&gt; 张三的女朋友 &lt;/name11&gt; &lt;age11&gt; 19 &lt;/age11&gt; &lt;/girlfriend11&gt; &lt;/stu1&gt; &lt;stu2&gt; &lt;name2&gt; 李四 &lt;/name2&gt; &lt;age2&gt; 23 &lt;/age2&gt; &lt;girlfriend22&gt; &lt;name22&gt; 李四的女朋友 &lt;/name22&gt; &lt;age22&gt; 18 &lt;/age22&gt; &lt;/girlfriend22&gt; &lt;/stu2&gt;&lt;/studentinfo&gt;# file:xml模块.pyimport xml.etree.ElementTree as ElementTree# 解析c.xmltree = ElementTree.parse('c.xml')print(tree)# 获取根标签rootTree = tree.getroot()print(rootTree)# iter是用于在全文范围获取标签for item in rootTree.iter('age22'): print(item.text) print(item.text.strip())# 输出 &lt;xml.etree.ElementTree.ElementTree object at 0x10462a7f0&gt;&lt;Element 'studentinfo' at 0x1045cbe08&gt; 1818]]></content>
+      <categories>
+        <category>Python入门</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python——JSON模块]]></title>
+    <url>%2F2018%2F10%2F17%2FPython%E2%80%94%E2%80%94JSON%E6%A8%A1%E5%9D%97%2F</url>
+    <content type="text"><![CDATA[JSON 模块 什么是JSON模块？如果我们要在不同的编程语言之间传递对象，就必须把对象序列化为标准格式，比如XML，但更好的方法是序列化为JSON，因为JSON表示出来就是一个字符串，可以被所有语言读取，也可以方便地存储到磁盘或者通过网络传输。JSON不仅是标准格式，并且比XML更快，而且可以直接在Web页面中读取，非常方便。JSON表示的对象就是标准的JavaScript语言的对象。 如果我们要在不同的编程语言之间传递对象，就必须把对象序列化为标准格式，比如XML，但更好的方法是序列化为JSON，因为JSON表示出来就是一个字符串，可以被所有语言读取，也可以方便地存储到磁盘或者通过网络传输。JSON不仅是标准格式，并且比XML更快，而且可以直接在Web页面中读取，非常方便。 JSON表示的对象就是标准的JavaScript语言的对象 JSON格式的语法规范JSON模块提供了四个方法：dumps, dump, loads, load (不带s 封装write 和 read) case1234567891011121314151617181920212223242526272829303132333435363738394041424344454647import json# file: a.json&#123; "users": [&#123; "name": "ooc", "age": 23 &#125;, &#123; "name": "james", "age": 27 &#125; ]&#125;# 反序列化 # file: json模块.pywith open('a.json','rt',encoding = 'utf-8') as f: res = json.loads(f.read()) print(type(res))# &lt;class 'dict'&gt;with open('a.json',encoding='utf-8') as f: print(json,load(f)) # 不带s 封装 write 和 read功能 # &#123;'users': [&#123;'name': 'ooc', 'age': 23&#125;, &#123;'name': 'james', 'age': 27&#125;]&#125;json_info = '''&#123; "users": [&#123; "name": "ooc", "age": 23 &#125;, &#123; "name": "james", "age": 27 &#125; ]&#125;'''res = json.loads(json_info)print(res)# &#123;'users': [&#123;'name': 'ooc', 'age': 23&#125;, &#123;'name': 'james', 'age': 27&#125;]&#125;with open('b.json','wt',encoding='utf-8') as f: f.wrtie(json.dumps(json_info)) with open('b.json','wt',encoding='utf-8') as f: json.dump(json_info,f) # 不带s 封装 write 和 read功能]]></content>
+      <categories>
+        <category>Python入门</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python——shelve模块]]></title>
+    <url>%2F2018%2F10%2F17%2FPython%E2%80%94%E2%80%94shelve%E6%A8%A1%E5%9D%97%2F</url>
+    <content type="text"><![CDATA[shelve 模块shelve模块比pickle模块简单，只有一个open函数，返回类似字典的对象，可读可写;key必须为字符串，而值可以是python所支持的数据类型。 case12345678910import shelveuser = &#123;'name':'ooc'&#125;f = shelve.open(r'user_info.shv',writeback = True)f['user'] = userf.close() # 关闭时，把添加的内容写回到原文件中f = shelve.open(r'user_info.shv')print(f['user'])f.close()]]></content>
+      <categories>
+        <category>Python入门</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python——pickle模块]]></title>
+    <url>%2F2018%2F10%2F17%2FPython%E2%80%94%E2%80%94pickle%E6%A8%A1%E5%9D%97%2F</url>
+    <content type="text"><![CDATA[pickle 模块序列化的模块 序列化是什么？序列化就是将内存中的数据结构转化成为一种中间格式，并储存到硬盘上。我们把变量从内存中变成可存储或传输的过程称之为序列化，在Python中叫pickling。 为什么要序列化？就是为了将数据持久储存，还为了实现跨平台数据交互。 反序列化是什么？把变量内容从序列化的对象重新读到内存里称之为反序列化，即unpickling。 case123456789101112131415161718import pickledic = &#123;'name':'ooc','age':23,'gender':'male'&#125;print(type(dic)) # &lt;class 'dict'&gt;a = pickle.dumps(dic) # dumps 直接序列化到文件print(type(a)) # &lt;class 'bytes'&gt;f = open('user_info.pkl','wb') # 因为a是'bytes' ，wb是写入bytesf.write(a) # f.write(pickle.dumps(dic))序列化f.close()f = open('user_info.pkl','rb')info = pickle.loads(f.read()) # 从文件中反序列化print(info['age'])# 23]]></content>
+      <categories>
+        <category>Python入门</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python——shutil模块]]></title>
+    <url>%2F2018%2F10%2F17%2FPython%E2%80%94%E2%80%94shutil%E6%A8%A1%E5%9D%97%2F</url>
+    <content type="text"><![CDATA[shutil 模块shutil 模块提供了一个易于使用的高级接口，用于处理文件、文件夹、压缩包、处理模块等 1234567891011121314151617181920212223242526272829303132333435363738# 将文件内容拷贝到另一个文件中# shutil.copyfileobj(fsrc,fdst[,length])&gt;&gt;&gt; import shutil&gt;&gt;&gt; shutil.copyfileobj(open('old.txt','r'),open('new.txt','w'))# 拷贝文件 和 shutil.copyfileobj(fsrc,fdst[,length]) 差不多# shutil.copyfile(src,dst)&gt;&gt;&gt; shutil.copyfile('old.txt','new.txt') # 目标无需存在# 仅拷贝权限，内容、组、用户均不变# shutil.copymode(src,dst)&gt;&gt;&gt; shutil.copymode('old.txt','new.txt') # 目标文件必须存在# 拷贝文件和权限# shutil.copy(src,dst)&gt;&gt;&gt; shutil.copy('old.txt','new.txt')# 拷贝文件和状态信息# shutil.copy2(src,dst)&gt;&gt;&gt; shutil.copy2('old.txt','new.txt')# 压缩文件# 创建压缩包并返回文件路径# shutil.make_archive(base_name, format,...)# base_name： 压缩包的文件名，也可以是压缩包的路径。只是文件名时，则保存至当前目录，否则保存至指定路径，# 如：data_bak =&gt;保存至当前路径# 如：/tmp/data_bak =&gt;保存至/tmp/# format： 压缩包种类，“zip”, “tar”, “bztar”，“gztar”# root_dir： 要压缩的文件夹路径（默认当前目录）# owner： 用户，默认当前用户# group： 组，默认当前组# logger： 用于记录日志，通常是logging.Logger对象&gt;&gt;&gt; shutil.make_archive('compression','zip',r'\a\b\c')&gt;&gt;&gt; shutil.make_archive('compression1','rar',r'\a\b\c')# shutil直接解压&gt;&gt;&gt; shutil.unpack_archive('\a\b\c\compression.zip')]]></content>
+      <categories>
+        <category>Python入门</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python——os.path模块]]></title>
+    <url>%2F2018%2F10%2F17%2FPython%E2%80%94%E2%80%94os.path%E6%A8%A1%E5%9D%97%2F</url>
+    <content type="text"><![CDATA[os.path 模块 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950&gt;&gt;&gt; import os# 返回path规范化的绝对路径&gt;&gt;&gt; os.path.abspath('a.txt') '/Users/ooc/makeupstories.github.io/a.txt'# 将path分割成目录和文件名二元组返回&gt;&gt;&gt; os.path.split('/Users/ooc/makeupstories.github.io/a.txt')('/Users/ooc/makeupstories.github.io', 'a.txt')# 返回path的目录。其实就是os.path.split(path)的第一个元素 [0]&gt;&gt;&gt; os.path.dirname('/Users/ooc/makeupstories.github.io/a.txt')'/Users/ooc/makeupstories.github.io'# 返回path最后的文件名。如何path以／或\结尾，那么就会返回空值。# 即os.path.split(path)的第二个元素&gt;&gt;&gt; os.path.basename('/Users/ooc/makeupstories.github.io/a.txt') 'a.txt'# 如果path存在，返回True；如果path不存在，返回False&gt;&gt;&gt; os.path.exists('/Users/ooc/makeupstories.github.io/no_exist.txt') False# 如果path是绝对路径，返回True&gt;&gt;&gt; os.path.isabs('/Users/ooc/makeupstories.github.io/no_exist.txt')True# 如果path是一个存在的文件，返回True。否则返回False&gt;&gt;&gt; os.path.isfile('/Users/ooc/makeupstories.github.io/no_exist.txt')False# 如果path是一个存在的目录，则返回True。否则返回False&gt;&gt;&gt; os.path.isdir('/Users/ooc/makeupstories.github.io/no_exist.txt') False# 将多个名称拼接为路径 &gt;&gt;&gt; os.path.join('a/','b/','c') 'a/b/c'# 返回path所指向的文件或者目录的最后存取时间&gt;&gt;&gt; os.path.getatime('/Users/ooc/makeupstories.github.io')1539767358.083225# 返回path所指向的文件或者目录的最后修改时间&gt;&gt;&gt; os.path.getmtime('/Users/ooc/makeupstories.github.io') 1539500860.4628224# 返回path的大小&gt;&gt;&gt; os.path.getsize('/Users/ooc/makeupstories.github.io') 448]]></content>
+      <categories>
+        <category>Python入门</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python——os模块]]></title>
     <url>%2F2018%2F10%2F16%2FPython%E2%80%94%E2%80%94os%E6%A8%A1%E5%9D%97%2F</url>
     <content type="text"><![CDATA[os 模块这个模块提供了一种方便的使用操作系统函数的方法。 获取当前的工作目录123&gt;&gt;&gt; import os&gt;&gt;&gt; os.getcwd()'/Users/ooc' 切换当前工作目录123456&gt;&gt;&gt; import os&gt;&gt;&gt; os.getcwd()'/Users/ooc'&gt;&gt;&gt; os.chdir('/Users/ooc/Desktop/')&gt;&gt;&gt; os.getcwd()'/Users/ooc/Desktop' 当前目录 &amp; 上一级目录12345&gt;&gt;&gt; import os&gt;&gt;&gt; os.curdir # 当前目录 '.''.'&gt;&gt;&gt; os.pardir # 上一级目录 '..''..' 系统环境变量12&gt;&gt;&gt; os.environ # 与sys.path不同的是 sys.path加载的是包的环境变量 # os.environ加载的是系统的环境变量 执行系统命令12&gt;&gt;&gt; os.system('cd') # 会执行括号中的命令，如果命令成功执行，返回0，否则返回10 创建目录123&gt;&gt;&gt; os.mkdir('d') # mkdir 一级一级的创建目录&gt;&gt;&gt; os.mkdir('j/a') # 上一级目录必须存在，否则报错&gt;&gt;&gt; os.makedirs('a/b/c') # 创建目录，可以连同子目录一同创建 删除目录12&gt;&gt;&gt; os.removedirs('a/b/c') # 递归删除，如果文件夹内没有文件就删掉，有文件就保留&gt;&gt;&gt; os.rmdir('d') 删除文件1&gt;&gt;&gt; os.remove(r'/Users/ooc/Desktop/a/b/c.txt') # 仅仅删除文件 列出所有文件和文件夹名称1&gt;&gt;&gt; os.listdir(r'/Users/ooc/Desktop/a/b') # 列出所有文件和文件夹名称 获取当前平台的路径分隔符12&gt;&gt;&gt; os.sep # 不同系统会有所差异/ 获取当前平台换行符12&gt;&gt;&gt; os.linesep'\n']]></content>
@@ -26,17 +103,6 @@
     <title><![CDATA[Python——sys模块]]></title>
     <url>%2F2018%2F10%2F16%2FPython%E2%80%94%E2%80%94sys%E6%A8%A1%E5%9D%97%2F</url>
     <content type="text"><![CDATA[sys 模块This module provides access to some objects used or maintained by the interpreter and to functions that interact strongly with the interpreter. 环境变量12345&gt;&gt;&gt; import sys # 记住要调用模块 此文章后边不再写&gt;&gt;&gt; sys.path['', '/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python37.zip', '/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7', '/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7/lib-dynload', '/usr/local/lib/python3.7/site-packages']# 环境变量# 可以通过 sys.path.append() 来添加 查看已经加载的模块12&gt;&gt;&gt; sys.modules# 你就可以看到你已经加载的模块，由于我这边加载的模块巨多，不写了 获取终端调用时的参数1234567891011121314151617&gt;&gt;&gt; sys.argv[''] # 这里我在terminal中测试的代码# 在pycharm, file:sys_argv.pyprint(sys.argv) 这里我们可以看到 sys.argv 是一个列表# ['/Users/ooc/Desktop/Python/sys模块.py']print(sys.argv[0])# /Users/ooc/Desktop/Python/sys模块.py# file:sys_argv.py# import sysprint(sys.argv[2])# file: sys_argv.py# file_path: /Users/ooc/Desktop/Python/sys_argv.py# terminaloOCs-MBP:~ ooc$ python3 /Users/ooc/Desktop/Python/sys_argv.py 1 4 9 104 # 获取终端调用时的参数 第一个元素是程序本身路径 获取解释器的版本信息1234&gt;&gt;&gt; import sys&gt;&gt;&gt; sys.version'3.7.0 (default, Aug 22 2018, 15:22:33) \n[Clang 9.1.0 (clang-902.0.39.2)]'# 当前解释器使用的信息 获取当前平台名称12&gt;&gt;&gt; sys.platformdarwin # MacOS int类型支持的最大值12&gt;&gt;&gt; sys.maxsize # 貌似python2中好像是，sys.maxint9223372036854775807 最大的Unicode值12&gt;&gt;&gt; sys.maxunicode1114111 中间结束程序12345&gt;&gt;&gt; sys.exit() # 默认为0# 执行到这行代码时就退出程序If the status is omitted or None, it defaults to zero (i.e., success).If the status is an integer, it will be used as the system exit status.If it is another kind of object, it will be printed and the system 终端复制文件工具123456789# 原文件路径source = sys.argv[1]# 目标文件路径dispath = sys.argv[2]with open(source,'rb') as f: data = f.read() with open(dispatch,'wb') as f2: f2.write(data)]]></content>
-      <categories>
-        <category>Python入门</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Python——函数]]></title>
-    <url>%2F2018%2F10%2F15%2FPython%E2%80%94%E2%80%94%E5%87%BD%E6%95%B0%2F</url>
-    <content type="text"></content>
       <categories>
         <category>Python入门</category>
       </categories>
