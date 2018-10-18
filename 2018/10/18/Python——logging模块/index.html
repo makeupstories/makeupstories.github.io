@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="sys 模块This module provides access to some objects used or maintained by the interpreter and to functions that interact strongly with the interpreter.   环境变量12345&amp;gt;&amp;gt;&amp;gt; import sys # 记住要调用模块 此文章后边">
+<meta name="description" content="logging 模块日志级别12345loogging.debug()    # 10     # 默认级别为warninglogging.info()		# 20	 # 默认输出位置为控制台logging.warning()	# 30logging.error()		# 40logging.critical()	# 50 自定义配置12import logginglogging.basicCon">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python——sys模块">
-<meta property="og:url" content="http://yoursite.com/2018/10/16/Python——sys模块/index.html">
+<meta property="og:title" content="Python——logging模块">
+<meta property="og:url" content="http://yoursite.com/2018/10/18/Python——logging模块/index.html">
 <meta property="og:site_name" content="MakeUpStories.">
-<meta property="og:description" content="sys 模块This module provides access to some objects used or maintained by the interpreter and to functions that interact strongly with the interpreter.   环境变量12345&amp;gt;&amp;gt;&amp;gt; import sys # 记住要调用模块 此文章后边">
+<meta property="og:description" content="logging 模块日志级别12345loogging.debug()    # 10     # 默认级别为warninglogging.info()		# 20	 # 默认输出位置为控制台logging.warning()	# 30logging.error()		# 40logging.critical()	# 50 自定义配置12import logginglogging.basicCon">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-16T12:23:19.663Z">
+<meta property="og:updated_time" content="2018-10-18T10:56:25.784Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python——sys模块">
-<meta name="twitter:description" content="sys 模块This module provides access to some objects used or maintained by the interpreter and to functions that interact strongly with the interpreter.   环境变量12345&amp;gt;&amp;gt;&amp;gt; import sys # 记住要调用模块 此文章后边">
+<meta name="twitter:title" content="Python——logging模块">
+<meta name="twitter:description" content="logging 模块日志级别12345loogging.debug()    # 10     # 默认级别为warninglogging.info()		# 20	 # 默认输出位置为控制台logging.warning()	# 30logging.error()		# 40logging.critical()	# 50 自定义配置12import logginglogging.basicCon">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/16/Python——sys模块/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/18/Python——logging模块/"/>
 
 
 
 
 
-  <title>Python——sys模块 | MakeUpStories.</title>
+  <title>Python——logging模块 | MakeUpStories.</title>
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/Python——sys模块/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/18/Python——logging模块/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="oOC">
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python——sys模块</h1>
+          <h1 class="post-title" itemprop="name headline">Python——logging模块</h1>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-16T14:51:10+08:00">
-                2018-10-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-18T11:55:23+08:00">
+                2018-10-18
               </time>
             
 
@@ -367,8 +367,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/10/16/Python——sys模块/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/16/Python——sys模块/" itemprop="commentCount"></span>
+                <a href="/2018/10/18/Python——logging模块/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/18/Python——logging模块/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -395,7 +395,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  510
+                  845
                 </span>
               
 
@@ -411,7 +411,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -432,17 +432,31 @@
       
 
       
-        <h3 id="sys-模块"><a href="#sys-模块" class="headerlink" title="sys 模块"></a>sys 模块</h3><p>This module provides access to some objects used or maintained by the interpreter and to functions that interact strongly with the interpreter. </p>
-<hr>
-<h4 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> sys <span class="comment"># 记住要调用模块 此文章后边不再写</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.path</span><br><span class="line">[<span class="string">''</span>, <span class="string">'/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python37.zip'</span>, <span class="string">'/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7'</span>, <span class="string">'/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7/lib-dynload'</span>, <span class="string">'/usr/local/lib/python3.7/site-packages'</span>]</span><br><span class="line"><span class="comment"># 环境变量</span></span><br><span class="line"><span class="comment"># 可以通过 sys.path.append() 来添加</span></span><br></pre></td></tr></table></figure>
-<h4 id="查看已经加载的模块"><a href="#查看已经加载的模块" class="headerlink" title="查看已经加载的模块"></a>查看已经加载的模块</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.modules</span><br><span class="line"><span class="comment"># 你就可以看到你已经加载的模块，由于我这边加载的模块巨多，不写了</span></span><br></pre></td></tr></table></figure>
-<h4 id="获取终端调用时的参数"><a href="#获取终端调用时的参数" class="headerlink" title="获取终端调用时的参数"></a>获取终端调用时的参数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.argv</span><br><span class="line">[<span class="string">''</span>] <span class="comment"># 这里我在terminal中测试的代码</span></span><br><span class="line"><span class="comment"># 在pycharm, file:sys_argv.py</span></span><br><span class="line">print(sys.argv)  这里我们可以看到 sys.argv 是一个列表</span><br><span class="line"><span class="comment"># ['/Users/ooc/Desktop/Python/sys模块.py']</span></span><br><span class="line">print(sys.argv[<span class="number">0</span>])</span><br><span class="line"><span class="comment"># /Users/ooc/Desktop/Python/sys模块.py</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># file:sys_argv.py</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">print(sys.argv[<span class="number">2</span>])</span><br><span class="line"><span class="comment"># file: sys_argv.py</span></span><br><span class="line"><span class="comment"># file_path: /Users/ooc/Desktop/Python/sys_argv.py</span></span><br><span class="line"><span class="comment"># terminal</span></span><br><span class="line">oOCs-MBP:~ ooc$ python3 /Users/ooc/Desktop/Python/sys_argv.py <span class="number">1</span> <span class="number">4</span> <span class="number">9</span> <span class="number">10</span></span><br><span class="line"><span class="number">4</span> <span class="comment"># 获取终端调用时的参数 第一个元素是程序本身路径</span></span><br></pre></td></tr></table></figure>
-<h4 id="获取解释器的版本信息"><a href="#获取解释器的版本信息" class="headerlink" title="获取解释器的版本信息"></a>获取解释器的版本信息</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> sys</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.version</span><br><span class="line"><span class="string">'3.7.0 (default, Aug 22 2018, 15:22:33) \n[Clang 9.1.0 (clang-902.0.39.2)]'</span></span><br><span class="line"><span class="comment"># 当前解释器使用的信息</span></span><br></pre></td></tr></table></figure>
-<h4 id="获取当前平台名称"><a href="#获取当前平台名称" class="headerlink" title="获取当前平台名称"></a>获取当前平台名称</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.platform</span><br><span class="line">darwin  <span class="comment"># MacOS</span></span><br></pre></td></tr></table></figure>
-<h4 id="int类型支持的最大值"><a href="#int类型支持的最大值" class="headerlink" title="int类型支持的最大值"></a>int类型支持的最大值</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.maxsize <span class="comment"># 貌似python2中好像是，sys.maxint</span></span><br><span class="line"><span class="number">9223372036854775807</span></span><br></pre></td></tr></table></figure>
-<h4 id="最大的Unicode值"><a href="#最大的Unicode值" class="headerlink" title="最大的Unicode值"></a>最大的Unicode值</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.maxunicode</span><br><span class="line"><span class="number">1114111</span></span><br></pre></td></tr></table></figure>
-<h4 id="中间结束程序"><a href="#中间结束程序" class="headerlink" title="中间结束程序"></a>中间结束程序</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.exit() <span class="comment"># 默认为0</span></span><br><span class="line"><span class="comment"># 执行到这行代码时就退出程序</span></span><br><span class="line">If the status <span class="keyword">is</span> omitted <span class="keyword">or</span> <span class="keyword">None</span>, it defaults to zero (i.e., success).</span><br><span class="line">If the status <span class="keyword">is</span> an integer, it will be used <span class="keyword">as</span> the system exit status.</span><br><span class="line">If it <span class="keyword">is</span> another kind of object, it will be printed <span class="keyword">and</span> the system</span><br></pre></td></tr></table></figure>
-<h4 id="终端复制文件工具"><a href="#终端复制文件工具" class="headerlink" title="终端复制文件工具"></a>终端复制文件工具</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 原文件路径</span></span><br><span class="line">source = sys.argv[<span class="number">1</span>]</span><br><span class="line"><span class="comment"># 目标文件路径</span></span><br><span class="line">dispath = sys.argv[<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(source,<span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    data = f.read()</span><br><span class="line">    <span class="keyword">with</span> open(dispatch,<span class="string">'wb'</span>) <span class="keyword">as</span> f2:</span><br><span class="line">        f2.write(data)</span><br></pre></td></tr></table></figure>
+        <h3 id="logging-模块"><a href="#logging-模块" class="headerlink" title="logging 模块"></a>logging 模块</h3><h4 id="日志级别"><a href="#日志级别" class="headerlink" title="日志级别"></a>日志级别</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">loogging.debug()    <span class="comment"># 10     # 默认级别为warning</span></span><br><span class="line">logging.info()		<span class="comment"># 20	 # 默认输出位置为控制台</span></span><br><span class="line">logging.warning()	<span class="comment"># 30</span></span><br><span class="line">logging.error()		<span class="comment"># 40</span></span><br><span class="line">logging.critical()	<span class="comment"># 50</span></span><br></pre></td></tr></table></figure>
+<h4 id="自定义配置"><a href="#自定义配置" class="headerlink" title="自定义配置"></a>自定义配置</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line">logging.basicConfig() <span class="comment"># 函数中通过具体参数来更改logging模块默认行为</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>可用参数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">filename: 用指定的文件名创建FiledHandler，这样日志会被储存在指定的文件</span><br><span class="line">filemode: 文件打开方式，在指定了filename时使用这个参数，默认值为&apos;a&apos;还可以指定&apos;w&apos;</span><br><span class="line">format: 指定handler使用的日志显示格式</span><br><span class="line">datefmt: 指定日期时间格式</span><br><span class="line">level: 设置rootlogger的日志级别</span><br><span class="line">stream: 用指定的stream创建StreamHandler,可以指定输出到sys.stderr, sys.stdout或者文件，默认为sys.stderr。若同时列出了filename和stream两个参数，则stream参数会被忽略。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可用格式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">%(name)s:  Logger的名字，并非用户名，详细查看</span><br><span class="line">%(levelno)s: 数字形式的日志级别</span><br><span class="line">%(levelname)s: 文本形式的日志级别</span><br><span class="line">%(pathname)s: 调用日志输出函数的模块的文件名</span><br><span class="line">%(module)s: 调用日志输出函数的模块名</span><br><span class="line">%(funcName)s: 调用日志输出函数的函数名</span><br><span class="line">%(lineno)d: 调用日志输出函数的语句所在的代码行</span><br><span class="line">%(created)f: 当前时间，用UNIX标准的表示时间的浮点数表示</span><br><span class="line">%(relativeCreated)d: 输出日志信息时自Logger创建以来的毫秒数</span><br><span class="line">%(asctime)s: 字符串形式的当前时间。默认格式为&apos;2018-10-15 17:30:00,123&apos;在逗号后边是毫秒</span><br><span class="line">%(thread)d: 线程ID</span><br><span class="line">%(threadName)s: 线程名</span><br><span class="line">%(process)d: 进程ID</span><br><span class="line">%(message)s: 用户输出的消息</span><br></pre></td></tr></table></figure>
+<h5 id="Case"><a href="#Case" class="headerlink" title="Case"></a>Case</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line">logging.basicConfig(</span><br><span class="line">    filename=<span class="string">"a.log"</span>,</span><br><span class="line">    filemode=<span class="string">"at"</span>,</span><br><span class="line">    level=<span class="number">10</span>,</span><br><span class="line">    format=<span class="string">"%(asctime)s %(levelname)s %(funcName)s %(lineno)s %(message)s"</span>,</span><br><span class="line">    datefmt=<span class="string">"%Y-%m-%d %X %p"</span></span><br><span class="line">)</span><br><span class="line">logging.debug(<span class="string">"这是调试信息"</span>) </span><br><span class="line"><span class="comment"># 由于我们设置了最低级别从10开始所以debug信息也会显示</span></span><br><span class="line"><span class="comment"># 2018-10-18 18:19:21 PM DEBUG &lt;module&gt; 21 这又是调试信息</span></span><br></pre></td></tr></table></figure>
+<h4 id="logging中的四个核心角色"><a href="#logging中的四个核心角色" class="headerlink" title="logging中的四个核心角色"></a>logging中的四个核心角色</h4><ul>
+<li>logger 生成日志</li>
+<li>handler 处理日志</li>
+<li>filter 过滤日志</li>
+<li>formatter 格式化</li>
+</ul>
+<h4 id="一条日志完整的生命周期"><a href="#一条日志完整的生命周期" class="headerlink" title="一条日志完整的生命周期"></a>一条日志完整的生命周期</h4><ul>
+<li>由logger产生日志                               # 会先检查日志级别，低于设置的级别则不执行</li>
+<li>交给过滤器判断是否被过滤</li>
+<li>将日志消息分发给绑定的所有处理器</li>
+<li>处理器按照绑定的格式化对对象输出日志      # 如果不指定格式则按照默认格式</li>
+</ul>
+<h4 id="通过字典配置日志模块"><a href="#通过字典配置日志模块" class="headerlink" title="通过字典配置日志模块"></a>通过字典配置日志模块</h4><p>配置日志模块</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">standard_format = <span class="string">"%(name)s %(asctime)s %(levelname)s %(module)s %(funcName)s %(lineno)s %(message)s"</span></span><br><span class="line">simple_format = <span class="string">"%(name)s %(asctime)s  %(module)s  %(message)s"</span></span><br><span class="line">complete_format = <span class="string">"%(asctime)s %(levelname)s %(funcName)s %(lineno)s %(thread)s %(process)s %(message)s"</span></span><br><span class="line">logfile_path = <span class="string">r"/Users/ooc/Desktop/Python（四期）/day22/代码/test/log0.log"</span></span><br><span class="line"></span><br><span class="line">LOGGING_DIC = &#123;</span><br><span class="line">    <span class="string">'version'</span>:<span class="number">1</span>,</span><br><span class="line">    <span class="string">'formatters'</span>:&#123;</span><br><span class="line">        <span class="string">'standard'</span>: &#123;</span><br><span class="line">            <span class="string">'format'</span> : standard_format</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">'simple'</span>:&#123;</span><br><span class="line">            <span class="string">'format'</span> : simple_format</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">'complete'</span>:&#123;</span><br><span class="line">            <span class="string">'format'</span> : complete_format</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'fileters'</span>:&#123;&#125;,</span><br><span class="line">    <span class="string">'handlers'</span> :&#123;</span><br><span class="line">        <span class="string">'console'</span> :&#123;</span><br><span class="line">            <span class="string">'level'</span> : <span class="string">'DEBUG'</span>,</span><br><span class="line">            <span class="string">'class'</span> : <span class="string">'logging.StreamHandler'</span>,</span><br><span class="line">            <span class="string">'formatter'</span> : <span class="string">'simple'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">'default'</span>:&#123;</span><br><span class="line">            <span class="string">'level'</span>: <span class="string">'DEBUG'</span>,</span><br><span class="line">            <span class="string">'class'</span>: <span class="string">'logging.handlers.RotatingFileHandler'</span>,</span><br><span class="line">            <span class="string">'formatter'</span>: <span class="string">'standard'</span>,</span><br><span class="line">            <span class="string">'filename'</span>: logfile_path,  <span class="comment">#</span></span><br><span class="line">            <span class="string">'maxBytes'</span>: <span class="number">1024</span> * <span class="number">1024</span> * <span class="number">5</span>,  </span><br><span class="line">            <span class="comment"># 日志文件的最大大小为5M 超出后 换文件</span></span><br><span class="line">            <span class="string">'backupCount'</span>: <span class="number">5</span>, <span class="comment"># 最多留五个日志文件</span></span><br><span class="line">            <span class="string">'encoding'</span>: <span class="string">'utf-8'</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'logger'</span> :&#123;</span><br><span class="line">        <span class="comment"># 在getLogger的时候  如果指定的名称 不存在 或者不给名称 用的就是默认的</span></span><br><span class="line">        <span class="comment"># 在这里如果key为空 它就是默认的</span></span><br><span class="line">        <span class="comment"># 你可以自己定义生成器的名称 并且他们还能使用相同的默认配置</span></span><br><span class="line">        <span class="string">''</span>: &#123;</span><br><span class="line">            <span class="string">'handlers'</span>: [<span class="string">'default'</span>, <span class="string">'console'</span>],</span><br><span class="line">            <span class="string">'level'</span>: <span class="string">'DEBUG'</span>,</span><br><span class="line">            <span class="string">'propagate'</span>: <span class="keyword">False</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -473,8 +487,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/15/Python——datetime模块/" rel="next" title="Python——datetime模块">
-                <i class="fa fa-chevron-left"></i> Python——datetime模块
+              <a href="/2018/10/17/Python——configparser模块/" rel="next" title="Python——configparser模块">
+                <i class="fa fa-chevron-left"></i> Python——configparser模块
               </a>
             
           </div>
@@ -482,10 +496,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/16/Python————random模块/" rel="prev" title="Python————random模块">
-                Python————random模块 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -648,7 +658,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#sys-模块"><span class="nav-number">1.</span> <span class="nav-text">sys 模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#环境变量"><span class="nav-number">1.1.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看已经加载的模块"><span class="nav-number">1.2.</span> <span class="nav-text">查看已经加载的模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取终端调用时的参数"><span class="nav-number">1.3.</span> <span class="nav-text">获取终端调用时的参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取解释器的版本信息"><span class="nav-number">1.4.</span> <span class="nav-text">获取解释器的版本信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取当前平台名称"><span class="nav-number">1.5.</span> <span class="nav-text">获取当前平台名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#int类型支持的最大值"><span class="nav-number">1.6.</span> <span class="nav-text">int类型支持的最大值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最大的Unicode值"><span class="nav-number">1.7.</span> <span class="nav-text">最大的Unicode值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#中间结束程序"><span class="nav-number">1.8.</span> <span class="nav-text">中间结束程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#终端复制文件工具"><span class="nav-number">1.9.</span> <span class="nav-text">终端复制文件工具</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#logging-模块"><span class="nav-number">1.</span> <span class="nav-text">logging 模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#日志级别"><span class="nav-number">1.1.</span> <span class="nav-text">日志级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义配置"><span class="nav-number">1.2.</span> <span class="nav-text">自定义配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Case"><span class="nav-number">1.2.1.</span> <span class="nav-text">Case</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#logging中的四个核心角色"><span class="nav-number">1.3.</span> <span class="nav-text">logging中的四个核心角色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一条日志完整的生命周期"><span class="nav-number">1.4.</span> <span class="nav-text">一条日志完整的生命周期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过字典配置日志模块"><span class="nav-number">1.5.</span> <span class="nav-text">通过字典配置日志模块</span></a></li></ol></li></ol></div>
             
 
           </div>
