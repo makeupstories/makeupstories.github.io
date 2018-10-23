@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python——面向对象编程]]></title>
+    <url>%2F2018%2F10%2F22%2FPython%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[面向对象编程面向过程编程思想 与 面向对象的编程思想面向过程编程思想 核心 ‘过程’ 两字，过程指的是解决问题的步骤 即：先干什么——&gt;再干什么——&gt;后干什么 优点：一个复杂功能简单化、流程化 缺点：可扩展性差，一动全动 面向对象的编程思想 核心‘对象’两字，对象是特征（变量）与技能（函数）的结合体 堪比创造世界，一切皆对象 类对象是特征（变量）与技能（函数）的结合体，而类则是一系列对象相同的特征（变量）与技能（函数）的结合体。 对象是具体存在的事物，而类则是一个抽象的概念 站在不同的角度总结出的类与对象是不同的 现实世界：先有一个个具体存在的对象，然后随着发展才会有类的概念 程序中：先定义类，后调用了类来产生对象 类的用途： 类本质就是一个名称空间，可以对该名称空间进行增删改查 调用类来产生对象 类体包含 相同的特征（变量）和相同的技能（函数） 类体中可以包含任意python代码 类体代码会在类定义阶段立即执行，产生一个名称空间，用来将类体代码执行执行过程中产生的名字都丢进去 e.g. Case 123456789101112131415161718192021222324252627282930313233343536立信选课系统对象1： 特征 学校 = ‘Lixin’ 职业 = ‘student’ 姓名 = ‘ooc’ 年龄 = 22 性别 = ‘male’ 技能 选课对象2： 特征 学校 = ‘Lixin’ 职业 = ‘student’ 姓名 = ‘rachel’ 年龄 = 18 性别 = ‘female’ 技能 选课对象3： 特征 学校 = ‘Lixin’ 职业 = ‘teacher’ 姓名 = ‘gu’ 年龄 = 50 性别 = ‘male’ 等级 = 10 技能 打分 学生类： 相似特征 学校 = ‘Lixin’ 职业 = ‘学生’ 相似技能 选课 1234567891011121314151617181920212223242526272829303132class LiXinStudent: # 相似的特征 school = 'Lixin' job = 'student' def __init__(self, name, age, gender): self.name = name self.age = age self.gender = gender # 相似的技能 def choose_course(self): print('%s choose course' %self.name)# 类对名称空间进行增删改查# 查看当前名称空间print(LiXinStudent.__dict__)print(LiXinStudent.__dict__['school'])# LiXinStudent.school # LiXinStudent.__dict['school']LiXinStudent.add_element = 11111print(LiXinStudent.__dict__) # 名称空间增加 add_element = 11111# 调用类产生对象stu1 = LiXinStudent('ooc', 22, 'male')print(stu1)# &lt;__main__.LiXinStudent object at 0x10b774e48&gt;print(stu1.__dict__)# &#123;'name': 'ooc', 'age': 22, 'gender': 'male'&#125;# __init__的功能：就是在实例化时就为对象初始自己独有的特征# 注意：不能有返回值 属性查找顺序 先从对象自己的名称空间找，没有则去所属的类找，不回去全局找，所属类里找不到就报错。 类中定义的变量是所有对象共享的，对象可以来用，类也可以来使用，类一旦改变自己的数据属性的值，所有的对象都能感知到。 绑定方法类中定义的函数是类的函数属性，类可以用，类来调用就是一个普通的函数，但其实类中的定义的函数是给对象用的，而且是绑定给对象用的。 类的函数：该传几个参数就传几个参数 特殊之处是绑定给谁就应该由谁来调用，谁来调用就会将谁当做第一个参数自动传入 123456stu1 = LiXinStudent('ooc', 22, 'male')print(stu1.__dict__)# &#123;'name': 'ooc', 'age': 22, 'sex': 'male'&#125;stu1 = choose_course()# ooc choose course# 绑定给谁就应该由谁来调用]]></content>
+      <categories>
+        <category>Python入门</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python——re正则表达式]]></title>
     <url>%2F2018%2F10%2F19%2FPython%E2%80%94%E2%80%94re%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[re - 正则表达式的操作Regular Expression简称re，表示正则表达式. 什么是正则表达式这个模块提供了一系列功能强大的正则表达式 (regular expression) 工具, 它们允许你快速检查给定字符串是否与给定的模式匹配 (使用 match 函数), 或者包含这个模式 (使用 search 函数). 正则表达式是以紧凑(也很神秘)的语法写出的字符串模式.表达式指的是某些带有特殊含义的符号或者符号组成的式子，这些式子是对字符进行处理的逻辑公式，是用特殊字符或者一些特殊组成一个规则字符串，这个规则字符串用来表达对字符的过滤逻辑。 re.match函数re.match 尝试从字符串的起始位置匹配一个模式， 支持的字符及其表达的含义The special characters are: ​ ‘.’ 匹配换行符之外的任何字符 ​ ‘^’ 匹配字符串的开头 ​ ‘$’ 匹配到字符串末尾或字符串末尾的换行符之前 ​ ‘‘ 匹配前面表达式的0次或更多重复。ab 将匹配’a’,’ab’或’a’,后跟任意数量的’b’(贪婪) ​ ‘+’ 匹配结果表达式匹配前一表达式的1次或多次重复 ​ ab+将匹配’a’，后跟任何非零数字’b’，它将不匹配只是’a’（贪婪） ​ ‘?’ 导致结果表达式匹配前面表达式的0或1个重复。ab? 将匹配’a’或’ab’（贪婪） *?,+?,?? 前三个表达式的非（贪婪）版本 ​ {m,n} 匹配前一个表达式的m到n次重复 ​ {m,n}? 前一个表达式的非（贪婪）版本 ​ ‘\\‘ 要么转义特殊字符，要么发出特殊序列信号 ​ [] 表示一组字符 ​ ‘|’ A|B, creates an RE that will match either A or B. ​ (…) Matches the RE inside the parentheses. ​]]></content>
