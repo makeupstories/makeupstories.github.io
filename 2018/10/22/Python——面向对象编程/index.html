@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="MakeUpStories.">
 <meta property="og:description" content="面向对象编程面向过程编程思想 与 面向对象的编程思想面向过程编程思想 核心 ‘过程’ 两字，过程指的是解决问题的步骤 即：先干什么——&amp;gt;再干什么——&amp;gt;后干什么 优点：一个复杂功能简单化、流程化 缺点：可扩展性差，一动全动  面向对象的编程思想 核心‘对象’两字，对象是特征（变量）与技能（函数）的结合体 堪比创造世界，一切皆对象  类对象是特征（变量）与技能（函数）的结合体，而类则是一系">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-23T08:26:31.414Z">
+<meta property="og:updated_time" content="2018-10-29T03:48:03.067Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python——面向对象编程">
 <meta name="twitter:description" content="面向对象编程面向过程编程思想 与 面向对象的编程思想面向过程编程思想 核心 ‘过程’ 两字，过程指的是解决问题的步骤 即：先干什么——&amp;gt;再干什么——&amp;gt;后干什么 优点：一个复杂功能简单化、流程化 缺点：可扩展性差，一动全动  面向对象的编程思想 核心‘对象’两字，对象是特征（变量）与技能（函数）的结合体 堪比创造世界，一切皆对象  类对象是特征（变量）与技能（函数）的结合体，而类则是一系">
@@ -395,7 +395,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  869
+                  1.3k
                 </span>
               
 
@@ -411,7 +411,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  5
                 </span>
               
             </div>
@@ -472,6 +472,13 @@
 <li>特殊之处是绑定给谁就应该由谁来调用，谁来调用就会将谁当做第一个参数自动传入</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">stu1 = LiXinStudent(<span class="string">'ooc'</span>, <span class="number">22</span>, <span class="string">'male'</span>)</span><br><span class="line">print(stu1.__dict__)</span><br><span class="line"><span class="comment"># &#123;'name': 'ooc', 'age': 22, 'sex': 'male'&#125;</span></span><br><span class="line">stu1 = choose_course()</span><br><span class="line"><span class="comment"># ooc choose course</span></span><br><span class="line"><span class="comment"># 绑定给谁就应该由谁来调用</span></span><br></pre></td></tr></table></figure>
+<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><h5 id="什么是继承？"><a href="#什么是继承？" class="headerlink" title="什么是继承？"></a>什么是继承？</h5><p>在程序中继承是一种新建子类的方式，新创建的类称之为子类、派生类，被继承的类称之为父类、基类、超类。继承描述的是一种遗传关系，子类可以重用父类的属性。</p>
+<h5 id="为何用继承？"><a href="#为何用继承？" class="headerlink" title="为何用继承？"></a>为何用继承？</h5><p>减少类与类之间的代码冗余的问题</p>
+<h5 id="如何继承"><a href="#如何继承" class="headerlink" title="如何继承"></a>如何继承</h5><p>先抽象再继承</p>
+<p>e.g. Case1</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 单继承&amp;多继承</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent1</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent2</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sub1</span><span class="params">(Parent1)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sub2</span><span class="params">(Parent1,Parent2)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">print(Sub1.__bases__)</span><br><span class="line"><span class="comment"># (&lt;class '__main__.Parent1'&gt;,)</span></span><br><span class="line">print(Sub2.__bases__)</span><br><span class="line"><span class="comment"># (&lt;class '__main__.Parent1'&gt;, &lt;class '__main__.Parent2'&gt;)</span></span><br><span class="line"></span><br><span class="line">print(Parent1.__bases__)</span><br><span class="line"><span class="comment"># (&lt;class 'object'&gt;,)</span></span><br><span class="line">print(Parent2.__bases__)</span><br><span class="line"><span class="comment"># (&lt;class 'object'&gt;,)    在python3中你不在()中写object，也默认给你加了</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># python2与python3在继承上的区别</span></span><br><span class="line"><span class="comment"># 新式类:但凡继承object类的子类,以及该子类的子子类,...都称之为新式类</span></span><br><span class="line"><span class="comment"># 经典类:没有继承object类的子类,以及该子类的子子类,...都称之为经典类</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 只有在python2中才区分新式类与经典类</span></span><br></pre></td></tr></table></figure>
+<p>e.g. Case2</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在子类派生出的新功能中如何重用父类的功能：</span></span><br><span class="line"><span class="comment"># 方式一：指名道姓地访问某一个类中的函数，与继承无关</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LixinPeople</span>:</span></span><br><span class="line">    school = <span class="string">'Lixin'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, age, gender)</span>:</span></span><br><span class="line"></span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line">        self.gender = gender</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LixinStudent</span><span class="params">(LixinPeople)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">choose_course</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'%s is choosing course'</span> %self.name)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LixinTeacher</span><span class="params">(LixinPeople)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age,gender,level,salary)</span>:</span></span><br><span class="line">        LixinPeople.__init__(self,name,age,gender)</span><br><span class="line"></span><br><span class="line">        self.level = level</span><br><span class="line">        self.salary = salary</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">score</span><span class="params">(self,stu,num)</span>:</span></span><br><span class="line">        stu.num=num <span class="comment"># 同时把分数存到该学生的内存空间当中</span></span><br><span class="line">        print(<span class="string">'老师%s给学生%s打分%s'</span> %(self.name,stu.name,num))</span><br><span class="line"></span><br><span class="line">tea = LixinTeacher(<span class="string">'gu'</span>,<span class="number">50</span>,<span class="string">'male'</span>,<span class="number">10</span>,<span class="number">3000</span>)</span><br><span class="line">print(tea.__dict__)</span><br><span class="line"></span><br><span class="line">stu1 = LixinStudent(<span class="string">'ooc'</span>,<span class="number">22</span>,<span class="string">'male'</span>)</span><br><span class="line">print(stu1.__dict__)</span><br><span class="line"></span><br><span class="line">stu1.choose_course()</span><br><span class="line"></span><br><span class="line">tea.score(stu1,<span class="number">100</span>)</span><br><span class="line">print(stu1.__dict__)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -511,6 +518,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/23/Python的命名空间/" rel="prev" title="Python的命名空间">
+                Python的命名空间 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -596,7 +607,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -673,7 +684,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象编程"><span class="nav-number">1.</span> <span class="nav-text">面向对象编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#面向过程编程思想-与-面向对象的编程思想"><span class="nav-number">1.1.</span> <span class="nav-text">面向过程编程思想 与 面向对象的编程思想</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#面向过程编程思想"><span class="nav-number">1.1.1.</span> <span class="nav-text">面向过程编程思想</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#面向对象的编程思想"><span class="nav-number">1.1.2.</span> <span class="nav-text">面向对象的编程思想</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类"><span class="nav-number">1.2.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性查找顺序"><span class="nav-number">1.3.</span> <span class="nav-text">属性查找顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绑定方法"><span class="nav-number">1.4.</span> <span class="nav-text">绑定方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象编程"><span class="nav-number">1.</span> <span class="nav-text">面向对象编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#面向过程编程思想-与-面向对象的编程思想"><span class="nav-number">1.1.</span> <span class="nav-text">面向过程编程思想 与 面向对象的编程思想</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#面向过程编程思想"><span class="nav-number">1.1.1.</span> <span class="nav-text">面向过程编程思想</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#面向对象的编程思想"><span class="nav-number">1.1.2.</span> <span class="nav-text">面向对象的编程思想</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类"><span class="nav-number">1.2.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性查找顺序"><span class="nav-number">1.3.</span> <span class="nav-text">属性查找顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绑定方法"><span class="nav-number">1.4.</span> <span class="nav-text">绑定方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承"><span class="nav-number">1.5.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是继承？"><span class="nav-number">1.5.1.</span> <span class="nav-text">什么是继承？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为何用继承？"><span class="nav-number">1.5.2.</span> <span class="nav-text">为何用继承？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何继承"><span class="nav-number">1.5.3.</span> <span class="nav-text">如何继承</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -707,7 +718,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">14.1k</span>
+    <span title="Site words total count">18.2k</span>
   
 </div>
 
@@ -728,7 +739,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共14.1k字</span>
+  <span class="post-count">博客全站共18.2k字</span>
 </div>
 
 

@@ -1,9 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python——封装]]></title>
+    <url>%2F2018%2F11%2F05%2FPython%E2%80%94%E2%80%94%E5%B0%81%E8%A3%85%2F</url>
+    <content type="text"><![CDATA[封装什么是封装？封指的是隐藏的意思，但是这种隐藏对外不对内 装指的是把属性装进一个容器 如何封装只需要在想要封装的数据前加上__开头 （两个下划线），该属性就会被隐藏起来，该隐藏具备的特点： 只是一种语法意义上的变形，开头的属性会在检测语法时发生变形 _类名_\属性名 这种隐藏式对外不对内，因为在类内部检测语法时所有的代码统一都发生的变形 这种变形只在检测语法时发生一次，在类定义之后新增的__开头的属性并不会发生变形 如果父类不想让子类覆盖自己的属性，可以在属性前加__开头 12345678910111213141516171819202122232425262728293031323334353637383940414243444546# 这种隐藏式对外不对内，因为在类内部检测语法时所有的代码统一都发生的变形 # class Foo: # __x = 1111 # _Foo__x =1111 # def __init__(self,y): # self.__y = y # # def __f1(self): # print('Foo.f1') # # def get_y(self): # print(self.__y) # _类名__属性名 # obj = Foo(2222) # # print(obj.x) # 找不到属性 # # print(obj.__x) # # print(obj.y) # # print(obj.__y) # # print(obj._Foo__x) # 1111 # print(obj._Foo__y) # obj.get_y()# 这种变形只在检测语法时发生一次，在类定义之后新增的__开头的属性并不会发生变形 # Foo.__aaaaaaaaaaaaaaaaaaaaaa = 1 # print(Foo.__dict__) # '__aaaaaaaaaaaaaaaaaaaaaa': 1# 如果父类不想让子类覆盖自己的方法，可以在方法名前加__开头 # class Foo: # def __f1(self): # print('Foo.f1') # # def f2(self): # print('Foo.f2') # self.__f1() # obj._Foo__f1() # # class Bar(Foo): # def __f1(self): # print('Bar.f1') # # obj = Bar() # obj.f2()# 为何要封装？封装数据属性的目的：将数据属性封装起来，类外部的使用就无法直接操作该数据属性，需要类内部开一个接口给使用者，类的设计者可以在接口智商附加任意逻辑，从而严格控制使用者对属性的操作 封装函数属性的目的：隔离复杂度 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556# 封装不是单纯意义上的隐藏# 封装数据属性的目的：把数据属性封装起来，然后需要开辟接口给类外部的使用者使用# 这样我们可以在接口之上添加控制逻辑，从而严格空间访问者对属性的操作class People: def __init__(self,name,age): self.__name = name self.__age = age def tell_info(self): u = input('user&gt;&gt;&gt; ').strip() p = input('pwd&gt;&gt;&gt; ').strip() if u == 'ooc' and p =='111': print(self.__name,self.__age) def modfiy_info(self,name,age): if type(name) is not str: raise TypeError('必须为str类型') if type(age) is not int: raise TypeError('必须为int类型') self.__name = name self.__age = agep = People('david',18)p.tell_info()p.modfiy_info('Jack',20)p.modfiy_info('Jack','20') # 报错p.modfiy_info(aaaa,20) # 报错# 封装函数属性的目的：为了隔离复杂度class ATM: def __card(self): print('插卡') def __auth(self): print('用户认证') def __input(self): print('输入取款金额') def __print_bill(self): print('打印账单') def __take_money(self): print('取款') def withdraw(self): self.__card() self.__auth() self.__input() self.__print_bill() self.__take_money()obj=ATM()obj.withdraw()# 封装其实最主要的功能就是明确地区分内外，对外是隐藏的，对内是开放的]]></content>
+      <categories>
+        <category>Python入门</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python——组合与继承]]></title>
+    <url>%2F2018%2F11%2F05%2FPython%E2%80%94%E2%80%94%E7%BB%84%E5%90%88%E4%B8%8E%E7%BB%A7%E6%89%BF%2F</url>
+    <content type="text"><![CDATA[什么是组合解决类与类之间代码冗余的问题有两种解决方案： 继承 ：描述的是类与类之间的关系 组合：描述的是一个类产生的对象，该对象拥有一个属性，这个属性的值是来自于另一个类的对象 12345678910111213141516171819202122232425262728293031323334353637383940class Date: def __init__(self,year,mon,day): self.year = year self.mon = mon self.day = day def tell_brith(self): print('出生日期&lt;%s-%s-%s&gt;' %(self.year,self.mon,self.day))class People: school = 'Lixin' def __init__(self,name,age,gender): self.name = name self.age = age self.gender = genderclass Teacher(People): def __init__(self,name,age,gender,level,salary): super().__init__(name,age,gender) self.level = level self.salary = salary def change_score(self): print('%s teacher is changing score.' %self.name)class Student(People): def __init__(self,name,age,gender,course): super().__init__(name,age,gender) self.course = course def choose(self): print('%s student is choosing courses.' %self.name)teacher_1 = Teacher('Lu',30,'male',10,10000)date_obj = Date(1988,1,1)date_obj.tell_brith()teacher_1.birth = date_obj # 为teacher_1 增加birth属性 值等于date_objteacher_1.birth.tell_brith() # teacher_1的名称空间等价于date_obj]]></content>
+      <categories>
+        <category>Python入门</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python——绑定与非绑定方法]]></title>
+    <url>%2F2018%2F11%2F05%2FPython%E2%80%94%E2%80%94%E7%BB%91%E5%AE%9A%E4%B8%8E%E9%9D%9E%E7%BB%91%E5%AE%9A%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[绑定方法与非绑定方法绑定方法 特殊之处：绑定给谁就应该由谁来调用，谁来调用就会将谁当做第一个参数自动传入 绑定给对象的方法：在类中定义函数没有被任何装饰器修饰的情况下，默认就是绑定对象的 绑定给类的方法：为类中定义函数添加一个装饰器classmethod，就是绑定类的 非绑定方法 特殊之处：非绑定方法就是一个普通函数，即不与类绑定又不与对象绑定，意味着类与对象都可以调用，但是无论谁来调用都是一个普通函数，没有自动传值效果。 非绑定方法：为类中定义函数添加一个装饰器staticmethod，就是非绑定方法 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869class Foo: def func1(self): print('func',self) # 绑定给类方法 @classmethod def func2(cls): print('func2',cls) # 非绑定方法，既不与类绑定又不与对象绑定 @staticmethod def func3(x,y): print('func3',x,y)obj = Foo()# 一、绑定给对象obj.func1()print(obj)# &lt;__main__.Foo object at 0x107f7ee48&gt;# 绑定给对象的方法，类也可以调用，但是类调用就是一个普通函数，# 没有自动传值的效果# Foo.func1() # 需要传值Foo.func1(obj)# 二、绑定给类的方法# 绑定给类的，应该由类来调用print(Foo.func2)print(obj.func2)Foo.func2()obj.func2()# 三、非绑定方法print(obj.func3)print(Foo.func3)obj.func3(1,2)Foo.func3(1,3)# caseimport settingsclass MySQL: def __init__(self,ip,port): self.id=self.create_id() self.ip=ip self.port=port def tell_info(self): print('&lt;%s:%s:%s&gt;' % (self.id,self.ip, self.port)) @classmethod def from_conf(cls): return cls(settings.IP, settings.PORT) @staticmethod def create_id(): import uuid return uuid.uuid4()# obj=MySQL('1.1.1.1.1',3406)# obj1=MySQL('1.1.1.2',3406)# obj.tell_info()print(MySQL.from_conf)a = MySQL.from_conf() # 要有变量接受返回值# 用a调用传入返回值a.tell_info()]]></content>
+      <categories>
+        <category>Python入门</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python——多态]]></title>
+    <url>%2F2018%2F11%2F05%2FPython%E2%80%94%E2%80%94%E5%A4%9A%E6%80%81%2F</url>
+    <content type="text"><![CDATA[多态什么是多态？多态指的是同一种事物多种形态 为何要用多态？用基类创建一套规则，强制子类去遵循，这样便可以再不用考虑对象具体类型的前提下而直接使用对象下的方法 如何用多态？123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960class Animal: def eat(self): pass def drink(self): pass def bark(self): passclass Cat(Animal): def bark(self): print('喵喵喵')class Dog(Animal): def bark(self): print('汪汪汪')c = Cat()d = Dog()# 可以在不考虑对象具体类型的前提下而直接使用对象下的方法# 规则强制import abc #abstract classclass Animal(metaclass=abc.ABCMeta): @abc.abstractmethod def eat(self): pass @abc.abstractmethod def drink(self): pass @abc.abstractmethod def bark(self): pass# obj=Animal() # 抽象基类本身不能被实例化class Cat(Animal): def eat(self): print('cat eat') def drink(self): print('cat drink') def bark(self): print('喵喵喵')class Dog(Animal): def eat(self): print('dog eat') def drink(self): print('dog drink') def bark(self): print('汪汪汪')def BARK(animal): animal.bark()c = Cat()c.bark()BARK(c) 鸭子类型123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960class Foo: def f1(self): print('from foo.f1') def f2(self): print('from foo.f2')class Bar: def f1(self): print('from bar.f1') def f2(self): print('from bar.f2')obj1=Foo()obj2=Bar()obj1.f1()obj1.f2()obj2.f1()obj2.f2()class Disk: def read(self): print('disk read') def write(self): print('disk write')class Txt: def read(self): print('txt read') def write(self): print('txt write')class Process: def read(self): print('process read') def write(self): print('process write')obj1=Disk()obj2=Txt()obj3=Process()obj1.read()obj2.read()obj3.read()]]></content>
+      <categories>
+        <category>Python入门</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python——网络编程]]></title>
+    <url>%2F2018%2F11%2F02%2FPython%E2%80%94%E2%80%94%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[Python基础之socket编程客户端、服务器架构C/S：C = Client，S = Server。C/S 架构即“客户端-服务器”架构。 B/S：B = Browser，S =Server。B/S架构其实是C/S架构一种特殊的实现形式 osi七层协议 tcp/ip 五层模型讲解socket套接字]]></content>
+      <categories>
+        <category>Python入门</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python——异常处理]]></title>
+    <url>%2F2018%2F11%2F01%2FPython%E2%80%94%E2%80%94%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%2F</url>
+    <content type="text"><![CDATA[异常处理 什么是异常？异常就是程序运行时发送错误的信号（在程序出现错误时，则会产生一个异常，若程序没有处理它，则会抛出该异常，程序的运行也随之终止） 异常的分类： 语法错误（最低级异常，避免犯错） 语法错误在python解释器的语法检测时，就会报错，必须在程序执行前就改正 逻辑错误 这种异常只有在代码被执行时才能发现，我们要处理的重点就是运行时产生的异常 特点：在没有运行代码前，往往无法很直观的能发现。如果运行时产生异常，并且我们没有正的处理异常时，他就会抛出错误信息，并且终止程序的运行，此时我们可以通过捕捉异常，使我们的程序更加稳定不容易崩溃，但也不意味着能滥用异常处理。 异常的组成 异常的追踪信息（具体发生异常的位置 以及函数的调用顺序） 异常类（错误的类型） 异常值（详细的错误信息） Case：123456789101112131415161718def func(): namefunc()# Traceback (most recent call last): (异常的追踪信息)# File "/Users/ooc/Desktop/异常处理/test.py", line 33, in &lt;module&gt;# func()# File "/Users/ooc/Desktop/异常处理/test.py", line 31, in func# name# （错误的类型）NameError: name 'name' is not defined (详细的错误信息)# 异常处理try: func()except Exception as e: print(e)# name 'name' is not defined 常见异常123456789101112AttributeError 试图访问一个对象没有的树形，比如foo.x，但是foo没有属性xIOError 输入/输出异常；基本上是无法打开文件ImportError 无法引入模块或包；基本上是路径问题或名称错误IndentationError 语法错误（的子类） ；代码没有正确对齐IndexError 下标索引超出序列边界，比如当x只有三个元素，却试图访问x[5]KeyError 试图访问字典里不存在的键KeyboardInterrupt Ctrl+C被按下NameError 使用一个还未被赋予对象的变量SyntaxError Python代码非法，代码不能编译(个人认为这是语法错误，写错了）TypeError 传入对象类型与要求的不符合UnboundLocalError 试图访问一个还未被设置的局部变量，基本上是由于另有一个同名的 全局变量，导致你以为正在访问它ValueError 传入一个调用者不期望的值，即使值的类型是正确的 异常处理为了保证程序的健壮性与容错性，即在遇到错误时程序不会崩溃，我们需要对异常进行处理。 如果错误发生的条件是可预知的，我们需要用if进行处理：在错误发生之前进行预防 如果错误发生的条件是不可预知的，贼需要用到try…except: 在错误发生之后进行处理 123456789101112131415161718192021222324252627282930313233343536# 基本语法try: # 被检测的代码块except 异常类型： # try 中一旦检测到异常，就会执行这个位置的逻辑 # 多种异常类型处理print("staring.....")try: name # 一旦检测到异常，就会执行except的逻辑 [][-1] passexcept NameError: print("名字找不到!")except IndexError: print("索引超出范围")print("end.......")# staring.....# 名字找不到!# end.......# 处理多种异常类型 Exception和BaseExceptionprint("staring.....")try: &#123;&#125;["aaa"] name [][-1] 1/0except Exception: print("可能名字找不到! 可能所以超出范围 可能除数为0")print("end.......")# staring.....# 可能名字找不到! 可能所以超出范围 可能除数为0# end....... 主动抛出异常123456789101112# 当程序中有一些用户没有遵守规则，我们可以主动抛出异常'''语法： raise 异常类型(异常的详细信息) 异常类型必须是BaseException的子类'''# e.gage = input("请输入整型的年龄:")if not age.isdigit(): raise TypeError("你输入的不是整型!")age = int(age)print("十年后你%s岁" % (age + 10)) 异常处理的使用通常只有在错误发生的条件无法预知的情况下，才应该加上try…except 异常不太常用语法12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667# 不太常用的 # 语法1 try: except: else: # try中没有发生异常时执行 # 语法2 try : except : finally : # 无论是否发生异常 都会执行finally 可以用来回收系统资源!# casetry: f = open("test.txt","rt",encoding="utf-8") f.read() f.write("123")except Exception: print("发生异常了")finally: print("关闭文件!") f.close() # 断言 assert# Assert statements are a convenient way to insert debugging# assertions into a program # 语法: assert 结果为Bool的表达式 # 如果值为True 则继续往下执行 # 如果值为False 抛出一个 AssertionError 表示断言失败name_list = ['jack','james']if len(name_list) &gt; 2: raise ValuError('列表中只有两个元素')# assert 相当于 ifassert len(name_list) &gt; 2 # 要使用列表中的数据来完成任务，就可以用assert代替if 做判断# 自定义异常类型# 当系统提供的这些异常类型 和你要描述的错误不匹配时 就需要自定义异常类型 # 写法: # class 自定义异常类型名称(BaseException): # 总结一下:之所以自定义异常类型 是为了更具体描述你的错误 让使用者一眼就看出了 # 关键点:1.如何自定义异常类型 # 2.在except中 使用as 来获取异常对象 class UnlikeError(BaseException): def __init(self,msg): self.msg = msg def hello(): msg = input('输入一段话： ') if msg == '你好': print('你好') else: raise UnlikeError('你不好')try: hello()except UnlikeError as e: print(e.msg) # 输入一段话：sagas# 你不好# 输入一段话：你好# 你好]]></content>
+      <categories>
+        <category>Python入门</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python——内置方法]]></title>
+    <url>%2F2018%2F10%2F25%2FPython%E2%80%94%E2%80%94%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[内置方法判断对象的类型isintance(对象,类型) 判断是否是子类issubclass(子类,父类) __str__方法会在对象被打印时自动触发,然后将返回值返回给print功能进行打印 1234567891011class People: def __init__(self,name,age): self.name=name self.age=age def __str__(self): return '&lt;%s:%s&gt;' %(self.name,self.age)peo=People('ooc',18)print(peo) #print(peo.__str__())# &lt;ooc:18&gt; __del__方法会在对象被删除时自动触发执行,用来在对象被删除前回收系统资源 1234567891011class Bar: def __init__(self,x,y,filepath): self.x=x self.y=y self.f=open(filepath,'r',encoding='utf-8') def __del__(self): # 写回收系统资源相关的代码 self.f.close()obj=Bar(10,20)del obj]]></content>
+      <categories>
+        <category>Python入门</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python——反射]]></title>
+    <url>%2F2018%2F10%2F25%2FPython%E2%80%94%E2%80%94%E5%8F%8D%E5%B0%84%2F</url>
+    <content type="text"><![CDATA[反射反射指的是通过字符串来操作属性 123456789101112131415161718192021222324252627# e.g.class Foo: def __init__(self,name,age): self.name = name self.age = age def tell_info(self): print('%s:%s' %(self.name,self.age)) obj = Foo('ooc',18)# hasattrprint(hasattr(obj,'name')) # True# getattrprint(getattr(obj,'name')) # ooc# setattrsetattr(obj,'gender','male') # 增加属性print(obj.__dict__) # &#123;'name': 'ooc', 'age': 18, 'sex': 'male'&#125;stattr(obj,'name','david') # 已存在属性就修改属性print(obj.__dict__) # &#123;'name': 'david', 'age': 18, 'sex': 'male'&#125;# delattrdelattr(obj,'name')print(obj.__dict__) # &#123;'age': 18, 'sex': 'male'&#125;]]></content>
+      <categories>
+        <category>Python入门</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python的命名空间]]></title>
+    <url>%2F2018%2F10%2F23%2FPython%E7%9A%84%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%2F</url>
+    <content type="text"><![CDATA[Python 的命名空间原文链接：https://segmentfault.com/a/1190000004519811]]></content>
+      <categories>
+        <category>Python入门</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python——面向对象编程]]></title>
     <url>%2F2018%2F10%2F22%2FPython%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%2F</url>
-    <content type="text"><![CDATA[面向对象编程面向过程编程思想 与 面向对象的编程思想面向过程编程思想 核心 ‘过程’ 两字，过程指的是解决问题的步骤 即：先干什么——&gt;再干什么——&gt;后干什么 优点：一个复杂功能简单化、流程化 缺点：可扩展性差，一动全动 面向对象的编程思想 核心‘对象’两字，对象是特征（变量）与技能（函数）的结合体 堪比创造世界，一切皆对象 类对象是特征（变量）与技能（函数）的结合体，而类则是一系列对象相同的特征（变量）与技能（函数）的结合体。 对象是具体存在的事物，而类则是一个抽象的概念 站在不同的角度总结出的类与对象是不同的 现实世界：先有一个个具体存在的对象，然后随着发展才会有类的概念 程序中：先定义类，后调用了类来产生对象 类的用途： 类本质就是一个名称空间，可以对该名称空间进行增删改查 调用类来产生对象 类体包含 相同的特征（变量）和相同的技能（函数） 类体中可以包含任意python代码 类体代码会在类定义阶段立即执行，产生一个名称空间，用来将类体代码执行执行过程中产生的名字都丢进去 e.g. Case 123456789101112131415161718192021222324252627282930313233343536立信选课系统对象1： 特征 学校 = ‘Lixin’ 职业 = ‘student’ 姓名 = ‘ooc’ 年龄 = 22 性别 = ‘male’ 技能 选课对象2： 特征 学校 = ‘Lixin’ 职业 = ‘student’ 姓名 = ‘rachel’ 年龄 = 18 性别 = ‘female’ 技能 选课对象3： 特征 学校 = ‘Lixin’ 职业 = ‘teacher’ 姓名 = ‘gu’ 年龄 = 50 性别 = ‘male’ 等级 = 10 技能 打分 学生类： 相似特征 学校 = ‘Lixin’ 职业 = ‘学生’ 相似技能 选课 1234567891011121314151617181920212223242526272829303132class LiXinStudent: # 相似的特征 school = 'Lixin' job = 'student' def __init__(self, name, age, gender): self.name = name self.age = age self.gender = gender # 相似的技能 def choose_course(self): print('%s choose course' %self.name)# 类对名称空间进行增删改查# 查看当前名称空间print(LiXinStudent.__dict__)print(LiXinStudent.__dict__['school'])# LiXinStudent.school # LiXinStudent.__dict['school']LiXinStudent.add_element = 11111print(LiXinStudent.__dict__) # 名称空间增加 add_element = 11111# 调用类产生对象stu1 = LiXinStudent('ooc', 22, 'male')print(stu1)# &lt;__main__.LiXinStudent object at 0x10b774e48&gt;print(stu1.__dict__)# &#123;'name': 'ooc', 'age': 22, 'gender': 'male'&#125;# __init__的功能：就是在实例化时就为对象初始自己独有的特征# 注意：不能有返回值 属性查找顺序 先从对象自己的名称空间找，没有则去所属的类找，不回去全局找，所属类里找不到就报错。 类中定义的变量是所有对象共享的，对象可以来用，类也可以来使用，类一旦改变自己的数据属性的值，所有的对象都能感知到。 绑定方法类中定义的函数是类的函数属性，类可以用，类来调用就是一个普通的函数，但其实类中的定义的函数是给对象用的，而且是绑定给对象用的。 类的函数：该传几个参数就传几个参数 特殊之处是绑定给谁就应该由谁来调用，谁来调用就会将谁当做第一个参数自动传入 123456stu1 = LiXinStudent('ooc', 22, 'male')print(stu1.__dict__)# &#123;'name': 'ooc', 'age': 22, 'sex': 'male'&#125;stu1 = choose_course()# ooc choose course# 绑定给谁就应该由谁来调用]]></content>
+    <content type="text"><![CDATA[面向对象编程面向过程编程思想 与 面向对象的编程思想面向过程编程思想 核心 ‘过程’ 两字，过程指的是解决问题的步骤 即：先干什么——&gt;再干什么——&gt;后干什么 优点：一个复杂功能简单化、流程化 缺点：可扩展性差，一动全动 面向对象的编程思想 核心‘对象’两字，对象是特征（变量）与技能（函数）的结合体 堪比创造世界，一切皆对象 类对象是特征（变量）与技能（函数）的结合体，而类则是一系列对象相同的特征（变量）与技能（函数）的结合体。 对象是具体存在的事物，而类则是一个抽象的概念 站在不同的角度总结出的类与对象是不同的 现实世界：先有一个个具体存在的对象，然后随着发展才会有类的概念 程序中：先定义类，后调用了类来产生对象 类的用途： 类本质就是一个名称空间，可以对该名称空间进行增删改查 调用类来产生对象 类体包含 相同的特征（变量）和相同的技能（函数） 类体中可以包含任意python代码 类体代码会在类定义阶段立即执行，产生一个名称空间，用来将类体代码执行执行过程中产生的名字都丢进去 e.g. Case 123456789101112131415161718192021222324252627282930313233343536立信选课系统对象1： 特征 学校 = ‘Lixin’ 职业 = ‘student’ 姓名 = ‘ooc’ 年龄 = 22 性别 = ‘male’ 技能 选课对象2： 特征 学校 = ‘Lixin’ 职业 = ‘student’ 姓名 = ‘rachel’ 年龄 = 18 性别 = ‘female’ 技能 选课对象3： 特征 学校 = ‘Lixin’ 职业 = ‘teacher’ 姓名 = ‘gu’ 年龄 = 50 性别 = ‘male’ 等级 = 10 技能 打分 学生类： 相似特征 学校 = ‘Lixin’ 职业 = ‘学生’ 相似技能 选课 1234567891011121314151617181920212223242526272829303132class LiXinStudent: # 相似的特征 school = 'Lixin' job = 'student' def __init__(self, name, age, gender): self.name = name self.age = age self.gender = gender # 相似的技能 def choose_course(self): print('%s choose course' %self.name)# 类对名称空间进行增删改查# 查看当前名称空间print(LiXinStudent.__dict__)print(LiXinStudent.__dict__['school'])# LiXinStudent.school # LiXinStudent.__dict['school']LiXinStudent.add_element = 11111print(LiXinStudent.__dict__) # 名称空间增加 add_element = 11111# 调用类产生对象stu1 = LiXinStudent('ooc', 22, 'male')print(stu1)# &lt;__main__.LiXinStudent object at 0x10b774e48&gt;print(stu1.__dict__)# &#123;'name': 'ooc', 'age': 22, 'gender': 'male'&#125;# __init__的功能：就是在实例化时就为对象初始自己独有的特征# 注意：不能有返回值 属性查找顺序 先从对象自己的名称空间找，没有则去所属的类找，不回去全局找，所属类里找不到就报错。 类中定义的变量是所有对象共享的，对象可以来用，类也可以来使用，类一旦改变自己的数据属性的值，所有的对象都能感知到。 绑定方法类中定义的函数是类的函数属性，类可以用，类来调用就是一个普通的函数，但其实类中的定义的函数是给对象用的，而且是绑定给对象用的。 类的函数：该传几个参数就传几个参数 特殊之处是绑定给谁就应该由谁来调用，谁来调用就会将谁当做第一个参数自动传入 123456stu1 = LiXinStudent('ooc', 22, 'male')print(stu1.__dict__)# &#123;'name': 'ooc', 'age': 22, 'sex': 'male'&#125;stu1 = choose_course()# ooc choose course# 绑定给谁就应该由谁来调用 继承什么是继承？在程序中继承是一种新建子类的方式，新创建的类称之为子类、派生类，被继承的类称之为父类、基类、超类。继承描述的是一种遗传关系，子类可以重用父类的属性。 为何用继承？减少类与类之间的代码冗余的问题 如何继承先抽象再继承 e.g. Case1 12345678910111213141516171819202122232425# 单继承&amp;多继承class Parent1(object): passclass Parent2: passclass Sub1(Parent1): passclass Sub2(Parent1,Parent2): passprint(Sub1.__bases__)# (&lt;class '__main__.Parent1'&gt;,)print(Sub2.__bases__)# (&lt;class '__main__.Parent1'&gt;, &lt;class '__main__.Parent2'&gt;)print(Parent1.__bases__)# (&lt;class 'object'&gt;,)print(Parent2.__bases__)# (&lt;class 'object'&gt;,) 在python3中你不在()中写object，也默认给你加了# python2与python3在继承上的区别# 新式类:但凡继承object类的子类,以及该子类的子子类,...都称之为新式类# 经典类:没有继承object类的子类,以及该子类的子子类,...都称之为经典类# 只有在python2中才区分新式类与经典类 e.g. Case2 123456789101112131415161718192021222324252627282930313233343536373839# 在子类派生出的新功能中如何重用父类的功能：# 方式一：指名道姓地访问某一个类中的函数，与继承无关class LixinPeople: school = 'Lixin' def __init__(self, name, age, gender): self.name = name self.age = age self.gender = genderclass LixinStudent(LixinPeople): def choose_course(self): print('%s is choosing course' %self.name)class LixinTeacher(LixinPeople): def __init__(self,name,age,gender,level,salary): LixinPeople.__init__(self,name,age,gender) self.level = level self.salary = salary def score(self,stu,num): stu.num=num # 同时把分数存到该学生的内存空间当中 print('老师%s给学生%s打分%s' %(self.name,stu.name,num))tea = LixinTeacher('gu',50,'male',10,3000)print(tea.__dict__)stu1 = LixinStudent('ooc',22,'male')print(stu1.__dict__)stu1.choose_course()tea.score(stu1,100)print(stu1.__dict__)]]></content>
       <categories>
         <category>Python入门</category>
       </categories>
