@@ -79,20 +79,25 @@
 
 
 
-<meta name="description" content="Python基础之socket编程客户端、服务器架构C/S：C = Client，S = Server。C/S 架构即“客户端-服务器”架构。 B/S：B = Browser，S =Server。B/S架构其实是C/S架构一种特殊的实现形式 osi七层协议 tcp/ip 五层模型讲解socket套接字">
+<meta name="description" content="Python基础之socket编程客户端、服务器架构C/S：C = Client，S = Server。C/S 架构即“客户端-服务器”架构。 B/S：B = Browser，S =Server。B/S架构其实是C/S架构一种特殊的实现形式 OSI七层协议 &amp;amp; TCP/IP 五层模型 TCP/IP 五层模型讲解物理层 功能：以二进制数据形式在物理媒体上传输数据。  数据链路层以太网协议（e">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python——网络编程">
 <meta property="og:url" content="http://yoursite.com/2018/11/02/Python——网络编程/index.html">
 <meta property="og:site_name" content="MakeUpStories.">
-<meta property="og:description" content="Python基础之socket编程客户端、服务器架构C/S：C = Client，S = Server。C/S 架构即“客户端-服务器”架构。 B/S：B = Browser，S =Server。B/S架构其实是C/S架构一种特殊的实现形式 osi七层协议 tcp/ip 五层模型讲解socket套接字">
+<meta property="og:description" content="Python基础之socket编程客户端、服务器架构C/S：C = Client，S = Server。C/S 架构即“客户端-服务器”架构。 B/S：B = Browser，S =Server。B/S架构其实是C/S架构一种特殊的实现形式 OSI七层协议 &amp;amp; TCP/IP 五层模型 TCP/IP 五层模型讲解物理层 功能：以二进制数据形式在物理媒体上传输数据。  数据链路层以太网协议（e">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fwtr9w6cybj30ke09ogn2.jpg">
-<meta property="og:updated_time" content="2018-11-02T07:45:41.325Z">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fx9m8r0t32j30j50er3zi.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fx9ye43l20j30k702it9e.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fxa0oeizruj30ow0gmjtx.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fxa4h1jivqj30cd0exqab.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fxa4zptoj2j30f20d50u9.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fxa5f08na8j30da0dnwex.jpg">
+<meta property="og:updated_time" content="2018-11-16T11:56:18.412Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python——网络编程">
-<meta name="twitter:description" content="Python基础之socket编程客户端、服务器架构C/S：C = Client，S = Server。C/S 架构即“客户端-服务器”架构。 B/S：B = Browser，S =Server。B/S架构其实是C/S架构一种特殊的实现形式 osi七层协议 tcp/ip 五层模型讲解socket套接字">
-<meta name="twitter:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fwtr9w6cybj30ke09ogn2.jpg">
+<meta name="twitter:description" content="Python基础之socket编程客户端、服务器架构C/S：C = Client，S = Server。C/S 架构即“客户端-服务器”架构。 B/S：B = Browser，S =Server。B/S架构其实是C/S架构一种特殊的实现形式 OSI七层协议 &amp;amp; TCP/IP 五层模型 TCP/IP 五层模型讲解物理层 功能：以二进制数据形式在物理媒体上传输数据。  数据链路层以太网协议（e">
+<meta name="twitter:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fx9m8r0t32j30j50er3zi.jpg">
 
 
 
@@ -397,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  75
+                  1.6k
                 </span>
               
 
@@ -413,7 +418,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  5
                 </span>
               
             </div>
@@ -436,8 +441,57 @@
       
         <h3 id="Python基础之socket编程"><a href="#Python基础之socket编程" class="headerlink" title="Python基础之socket编程"></a>Python基础之socket编程</h3><h4 id="客户端、服务器架构"><a href="#客户端、服务器架构" class="headerlink" title="客户端、服务器架构"></a>客户端、服务器架构</h4><p>C/S：C = Client，S = Server。C/S 架构即“客户端-服务器”架构。</p>
 <p>B/S：B = Browser，S =Server。B/S架构其实是C/S架构一种特殊的实现形式</p>
-<h4 id="osi七层协议"><a href="#osi七层协议" class="headerlink" title="osi七层协议"></a>osi七层协议</h4><p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fwtr9w6cybj30ke09ogn2.jpg" alt=""></p>
-<h5 id="tcp-ip-五层模型讲解"><a href="#tcp-ip-五层模型讲解" class="headerlink" title="tcp/ip 五层模型讲解"></a>tcp/ip 五层模型讲解</h5><h4 id="socket"><a href="#socket" class="headerlink" title="socket"></a>socket</h4><h4 id="套接字"><a href="#套接字" class="headerlink" title="套接字"></a>套接字</h4>
+<h4 id="OSI七层协议-amp-TCP-IP-五层模型"><a href="#OSI七层协议-amp-TCP-IP-五层模型" class="headerlink" title="OSI七层协议 &amp; TCP/IP 五层模型"></a>OSI七层协议 &amp; TCP/IP 五层模型</h4><p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fx9m8r0t32j30j50er3zi.jpg" alt=""></p>
+<h4 id="TCP-IP-五层模型讲解"><a href="#TCP-IP-五层模型讲解" class="headerlink" title="TCP/IP 五层模型讲解"></a>TCP/IP 五层模型讲解</h4><h5 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h5><ul>
+<li>功能：以二进制数据形式在物理媒体上传输数据。</li>
+</ul>
+<h5 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h5><h6 id="以太网协议（ethernet）："><a href="#以太网协议（ethernet）：" class="headerlink" title="以太网协议（ethernet）："></a>以太网协议（ethernet）：</h6><ul>
+<li>一组电信号构成一个数据包，叫做 <strong>‘以太帧’</strong></li>
+<li><p>以太帧（IEEE802.3结构）的组成：<img src="https://ws4.sinaimg.cn/large/006tNbRwly1fx9ye43l20j30k702it9e.jpg" alt=""></p>
+<ul>
+<li>Preamble: 前导码，7个字节，用于数据传输过程中的双方发送、接收的速率的同步</li>
+<li>SFD: 帧开始符，1个字节，表明下一个字节开始是真实数据</li>
+<li>dst MAC: 目标MAC地址，6个字节，指明这个以太帧的接受者</li>
+<li>src MAC: 源MAC地址，6个字节，指明这个以太帧的发送者</li>
+<li>Length: 长度，2个字节，指明这个以太帧数据字段的长度，</li>
+<li>Type: 类型，2个字节，指明这个以太帧中数据的协议类型，比如 0x0800 表明该以太帧用的是IPv4的ip协议</li>
+<li>Data and Pad: 数据与填充，46~1500个字节，包含了上层协议传递下来的数据，如果加入数据字段后，这个以太帧长度不够64个字节，会在数据字段加入‘填充’使它达到64字节</li>
+<li>FCS: 帧校验序列，4个字节，对接收网卡，主要是检测Date and Pad字段，提供判断是否传输错误的一种方法，如果发现错误，丢弃此帧。目前最为流行的用于FCS的算法是循环冗余校验（cyclic redundancy check - <strong>CRC</strong>）</li>
+</ul>
+</li>
+<li><p><a href="https://baike.baidu.com/item/MAC%E5%9C%B0%E5%9D%80/1254181?fr=aladdin" target="_blank" rel="noopener">MAC地址（Media Access Control Address）</a>: 每块网卡出厂时，由网卡生产厂家少如网卡的EPROM，它储存的是传输数据时真正赖以标识发出数据的电脑和接收数据的主机的地址，形象的解释，MAC地址就如同身份证上的身份证号码，具有全球唯一性。</p>
+</li>
+<li>广播：有了MAC地址，局域网内的两台主机就可以通信，一台主机通过ARP协议获取另外一台主机的MAC地址。在同一局域网内的主机都会收到一个包，其他主机会收到这个包，并进行拆解，发现目标MAC地址不是自己，就丢弃，如果是自己就响应。</li>
+</ul>
+<h5 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h5><p>试想，我们现在有了ethernet、MAC地址、广播的发送方式，世界上的计算机都采用以太网的广播方式，的确彼此之间就可以通信le ，但是会出现一个问题，一台主机发送的包就会被全世界收到，这就会造成很多问题，比如效率低下。</p>
+<p>那么实际上世界的网络是由一个个小的彼此隔离的局域网组成的，以太网的广播包只能在一个局域网内发送，一个局域网就是一个广播域，以太网的广播包只能在一个广播域内发送，跨广播域通信只能通过路由转发，那么网络层的功能就是找一种办法来区分不同的广播域/子网，这种办法叫做IP协议。</p>
+<h6 id="IP协议"><a href="#IP协议" class="headerlink" title="IP协议"></a>IP协议</h6><ul>
+<li>规定网络地址的协议叫做IP协议，它定义的地址称之为IP地址，广泛采用的版本为IPv4，它规定网络地址由32位2进制表示。</li>
+<li>范围0.0.0.0 - 255.255.255.255</li>
+<li>一个IP地址通常携程四段十进制数，例如：127.10.12.1</li>
+<li>IP地址分为两部分<ul>
+<li>网络部分：标识子网</li>
+<li>主机部分：标识主机</li>
+<li>单纯的IP地址，只是标识了IP地址的种类，从网络部分或主机部分都无法辨识一个IP所处的子网，即：192.168.10.1与192.168.10.2 不能确定二者处于同一个子网内。</li>
+</ul>
+</li>
+<li>子网掩码：就是标识子网特征的一个参数，我们知道了‘子网掩码’后，我们就能判断，任意两个IP地址是否处在同一个子网络内，方法就是将两个IP地址与子网掩码进行AND运算（两个对应数位为1，运算结果就为1，否则为0），然后比较结果是否相同，如果是的话，就表明这两个IP地址，在同一个子网络中，否则就不是。</li>
+<li>IP协议，最主要的功能由两个：一个是为每一台计算及分配IP地址，另一个是确定哪些地址在同一个子网络。</li>
+<li>IP数据报<img src="https://ws4.sinaimg.cn/large/006tNbRwly1fxa0oeizruj30ow0gmjtx.jpg" alt=""></li>
+<li><a href="https://www.wikiwand.com/en/Address_Resolution_Protocol" target="_blank" rel="noopener">ARP协议</a></li>
+</ul>
+<h5 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h5><p>以我们的电脑为例，你会在电脑上运行QQ，微信，浏览器等应用软件，网络层的IP+子网掩码帮我们区分了子网，以太网的MAC地址帮我们找到了局域网内的主机，那么如何该分辨你的这个数据是发送给你主机上的哪个应用程序的呢？答案是端口port（端口范围0-65535，0-1023为系统占用端口尽量别用）</p>
+<h6 id="tcp协议"><a href="#tcp协议" class="headerlink" title="tcp协议"></a><a href="https://juejin.im/post/5b29d2c4e51d4558b80b1d8c" target="_blank" rel="noopener">tcp协议</a></h6><p>暂时看一下这个超链接大佬写的吧，好像举例更生动点。</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxa4h1jivqj30cd0exqab.jpg" alt=""></p>
+<h6 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h6><p>应用层是系统的最高层，是直接为应用进程提供服务的，直接和应用程序接口并提供常见的网络应用服务。其作用是在实现多个系统应用进程相互通信的同时，完成一系列业务处理所需的服务。</p>
+<h3 id="socket"><a href="#socket" class="headerlink" title="socket"></a>socket</h3><p>Socket我们通常称之为套接字，是在应用层和TCP/IP协议族通信的一个抽象层。它把运输层和网络层复杂的复杂的操作抽象为几个简单的接口提供给应用层调用，以此来实现网络中的通信。</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fxa4zptoj2j30f20d50u9.jpg" alt=""></p>
+<h4 id="套接字发展史及分类"><a href="#套接字发展史及分类" class="headerlink" title="套接字发展史及分类"></a>套接字发展史及分类</h4><ul>
+<li>基于文件类型的套接字家族：AF_UNIX（UNIX中一切皆文件，基于文件的套接字调用的就是底层的文件系统来取数据，两个套接字进程运行在同一机器，可以通过访问同一个文件系统间接完成通信）</li>
+<li>基于网络类型的套接字家族：AF_INET（python支持很多种地址家族，但是由于我们只关心网络编程，所以大部分时候我么只使用AF_INET）</li>
+</ul>
+<h4 id="套接字工作流程"><a href="#套接字工作流程" class="headerlink" title="套接字工作流程"></a>套接字工作流程</h4><p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxa5f08na8j30da0dnwex.jpg" alt="socket工作流程"></p>
+
       
     </div>
     
@@ -565,7 +619,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -587,7 +641,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -642,7 +696,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Python基础之socket编程"><span class="nav-number">1.</span> <span class="nav-text">Python基础之socket编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#客户端、服务器架构"><span class="nav-number">1.1.</span> <span class="nav-text">客户端、服务器架构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#osi七层协议"><span class="nav-number">1.2.</span> <span class="nav-text">osi七层协议</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#tcp-ip-五层模型讲解"><span class="nav-number">1.2.1.</span> <span class="nav-text">tcp/ip 五层模型讲解</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#socket"><span class="nav-number">1.3.</span> <span class="nav-text">socket</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#套接字"><span class="nav-number">1.4.</span> <span class="nav-text">套接字</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Python基础之socket编程"><span class="nav-number">1.</span> <span class="nav-text">Python基础之socket编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#客户端、服务器架构"><span class="nav-number">1.1.</span> <span class="nav-text">客户端、服务器架构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OSI七层协议-amp-TCP-IP-五层模型"><span class="nav-number">1.2.</span> <span class="nav-text">OSI七层协议 &amp; TCP/IP 五层模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP-IP-五层模型讲解"><span class="nav-number">1.3.</span> <span class="nav-text">TCP/IP 五层模型讲解</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#物理层"><span class="nav-number">1.3.1.</span> <span class="nav-text">物理层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据链路层"><span class="nav-number">1.3.2.</span> <span class="nav-text">数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#以太网协议（ethernet）："><span class="nav-number">1.3.2.1.</span> <span class="nav-text">以太网协议（ethernet）：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#网络层"><span class="nav-number">1.3.3.</span> <span class="nav-text">网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#IP协议"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">IP协议</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#传输层"><span class="nav-number">1.3.4.</span> <span class="nav-text">传输层</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#tcp协议"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">tcp协议</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#应用层"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">应用层</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#socket"><span class="nav-number">2.</span> <span class="nav-text">socket</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#套接字发展史及分类"><span class="nav-number">2.1.</span> <span class="nav-text">套接字发展史及分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#套接字工作流程"><span class="nav-number">2.2.</span> <span class="nav-text">套接字工作流程</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -676,7 +730,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">18.2k</span>
+    <span title="Site words total count">21.1k</span>
   
 </div>
 
@@ -697,7 +751,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共18.2k字</span>
+  <span class="post-count">博客全站共21.1k字</span>
 </div>
 
 
