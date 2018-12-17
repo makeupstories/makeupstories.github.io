@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/w_128px.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/w_48px.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/w_32px.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/w_48px.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MySQL," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="数据库的基本操作创建数据库​    MySQL安装好以后，首先需要创建数据库，这是使用MySQL各种功能的前提。安装完成之后，将会在其data目录下自动创建几个必须的数据库，可以使用SHOW DATABASES;语句来查看当前所有存在的数据库。  ​    可以看到，数据库列表中包含了4个数据库，这四个数据库是必然存在的，一般建议是不需要删除。 ​    创建数据库是在系统磁盘上划分一块区域用于数">
+<meta name="keywords" content="MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库的基本操作">
+<meta property="og:url" content="http://yoursite.com/2018/12/03/数据库的基本操作/index.html">
+<meta property="og:site_name" content="MakeUpStories.">
+<meta property="og:description" content="数据库的基本操作创建数据库​    MySQL安装好以后，首先需要创建数据库，这是使用MySQL各种功能的前提。安装完成之后，将会在其data目录下自动创建几个必须的数据库，可以使用SHOW DATABASES;语句来查看当前所有存在的数据库。  ​    可以看到，数据库列表中包含了4个数据库，这四个数据库是必然存在的，一般建议是不需要删除。 ​    创建数据库是在系统磁盘上划分一块区域用于数">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fxluvfu0pij30t20bq0u7.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fxlw323qtyj311c08u0tp.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwly1fxlw39loq3j312205m758.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fxlw7gt4b9j30r00degml.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fxlwjk4etmj30mg0g0ta1.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwly1fxlwltfsrij30u004ygm7.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwly1fxmqr04mcsj31o20hwq75.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fxmv2e39n1j30zs0am0yf.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fxmw2601p0j31340i0n00.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fxmw20wfpsj30ks0ggt9o.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fxmw61klyqj30yi0a2gm9.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fxmw7sb04zj30s40gimyi.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fxmw9z0ykoj31o80hmn06.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwly1fxmwf30ah2j30ps0bs757.jpg">
+<meta property="og:updated_time" content="2018-12-17T11:50:47.170Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库的基本操作">
+<meta name="twitter:description" content="数据库的基本操作创建数据库​    MySQL安装好以后，首先需要创建数据库，这是使用MySQL各种功能的前提。安装完成之后，将会在其data目录下自动创建几个必须的数据库，可以使用SHOW DATABASES;语句来查看当前所有存在的数据库。  ​    可以看到，数据库列表中包含了4个数据库，这四个数据库是必然存在的，一般建议是不需要删除。 ​    创建数据库是在系统磁盘上划分一块区域用于数">
+<meta name="twitter:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fxluvfu0pij30t20bq0u7.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/03/数据库的基本操作/"/>
+
+
+
+
+
+  <title>数据库的基本操作 | MakeUpStories.</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MakeUpStories.</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Grap life by the horns.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/03/数据库的基本操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="oOC">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MakeUpStories.">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据库的基本操作</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-03T20:22:07+08:00">
+                2018-12-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/03/数据库的基本操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/03/数据库的基本操作/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="数据库的基本操作"><a href="#数据库的基本操作" class="headerlink" title="数据库的基本操作"></a>数据库的基本操作</h2><h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><p>​    MySQL安装好以后，首先需要创建数据库，这是使用MySQL各种功能的前提。安装完成之后，将会在其data目录下自动创建几个必须的数据库，可以使用<code>SHOW DATABASES;</code>语句来查看当前所有存在的数据库。</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxluvfu0pij30t20bq0u7.jpg" alt="查看当前所有存在的数据库"></p>
+<p>​    可以看到，数据库列表中包含了4个数据库，这四个数据库是必然存在的，一般建议是不需要删除。</p>
+<p>​    <strong>创建数据库是在系统磁盘上划分一块区域用于数据的存储和管理，如果管理员在设置权限的时候为用户创建了数据库，则可以直接使用，否则，需要自己创建数据库。MySQL中创建数据哭的基本SQL语句为<code>CREATE DATABASE database_name;</code></strong> （“database_name” 为要创建的数据库的名称，并且该名称不能与已经存在的数据库重名）。</p>
+<p><em>[e.g.]</em></p>
+<p>_创建测试数据库 test_db：_</p>
+<p><code>CREATE DATABASE test_db;</code></p>
+<p>​    <strong>数据库创建好之后，可以使用SHOW CREATE DATABASE声明查看数据库的定义</strong></p>
+<p>_查看创建好的数据库 test_db 的定义：_</p>
+<p><code>SHOW CREATE DATABASE test_db;</code></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxlw323qtyj311c08u0tp.jpg" alt="Screen Shot 2018-11-26 at 11.38.07 PM"></p>
+<p><code>SHOW CREATE DATABASE test_db\G</code></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxlw39loq3j312205m758.jpg" alt="Screen Shot 2018-11-26 at 11.38.24 PM"></p>
+<p><em>再次使用 <code>SHOW DATABASES;</code>语句来查看当前所有存在的数据库</em></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxlw7gt4b9j30r00degml.jpg" alt="Screen Shot 2018-11-26 at 11.42.38 PM"></p>
+<p>​    可以看到，数据库列表中包含了刚刚创建的数据库 test_db 和之前存在的四个自带的数据库，一共5个数据库。</p>
+<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><p>​    <strong>删除数据库是将已经存在的数据库从磁盘空间上清除，清除之后，数据库中的所有数据也将一同被删除。删除数据库的SQL基本语句为<code>DROP DATABASE database_name;</code></strong>（同理 此处的database_name 为你想要删除的库名），如果你指定的数据库名不存在，则删除会出错。</p>
+<p><em>[e.g]</em></p>
+<p>_删除测试数据库 test_db_</p>
+<p><code>DROP DATABASE test_db</code></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxlwjk4etmj30mg0g0ta1.jpg" alt="Screen Shot 2018-11-26 at 11.54.17 PM"></p>
+<p>_再次查看数据库 test_db的定义_</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxlwltfsrij30u004ygm7.jpg" alt="Screen Shot 2018-11-26 at 11.56.26 PM"></p>
+<p><strong>执行结果给出一条错误信息，即说明数据库 test_db 已不存在，删除成功了。</strong></p>
+<h3 id="数据库存储引擎"><a href="#数据库存储引擎" class="headerlink" title="数据库存储引擎"></a>数据库存储引擎</h3><p>​    数据库存储引擎是数据库底层软件组件，数据库管理系统（DBMS）使用数据引擎进行创建、查询、更新和删除数据操作。<strong>不同的存储引擎提供不同的存储机制、索引技巧、锁定水平等功能，使用不同的存储引擎，还可以获得特定的功能。MySQL的核心就是存储引擎。</strong></p>
+<h4 id="MySQL-存储引擎简介"><a href="#MySQL-存储引擎简介" class="headerlink" title="MySQL 存储引擎简介"></a>MySQL 存储引擎简介</h4><p>​    MySQL 提供了多个不同的存储引擎，不需要再整个服务器中使用同一种存储引擎，针对具体的要求，可以对每一个表使用不同的存储引擎。MySQL5.7 支持的存储引擎有：InnoDB，MyISAM，Memory，Merge，Archive，Federated，CSV，BLACKHOLE等。可以使用<code>SHOW ENGINES;</code>语句查看系统所支持的引擎类型。</p>
+<p><strong><code>SHOW ENGINES\g</code> 等效于<code>SHOW ENGINES;</code>也就是 ‘ \g ’ 等于 ‘ ; ’ </strong></p>
+<p><strong><code>SHOW ENGINES\G</code> 将查询到的横向表格纵向输出，方便阅读。（自己在terminal里试一下吧，太长了！）</strong></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxmqr04mcsj31o20hwq75.jpg" alt="Screen Shot 2018-11-27 at 5.19.16 PM"></p>
+<p>​    Support 列的值表示某种引擎是否能使用：YES表示可以使用，NO表示不能使用，DEFAULT表示该引擎为当前默认存储引擎。</p>
+<h4 id="InnoDB-存储引擎"><a href="#InnoDB-存储引擎" class="headerlink" title="InnoDB 存储引擎"></a>InnoDB 存储引擎</h4><p>​    <strong>InnoDB 是事务型数据库的首选引擎，支持事务安全表（ACID），支持行锁定和外键。MySQL 5.7中，InnoDB 作为默认存储引擎。</strong>InnoDB 主要特性有：</p>
+<ol>
+<li>InnoDB给MySQL提供了具有提交、回滚和崩溃恢复能力的事务安全存储引擎。</li>
+<li>InnoDB是为处理巨大数据量的最大性能设计。它的CPU效率可能是任何其他基于磁盘的关系数据库引擎所不能匹敌的。</li>
+<li>InnoDB存储引擎完全与MySQL服务器整合，InnoDB存储引擎为在主内存中缓存数据和索引而维持它自己的缓冲池。InnoDB将它的表和索引存在一个逻辑表空间中，表空间可以包含数个文件（或原始磁盘分区）。InnoDB表可以是任何尺寸，即使文件尺寸被限制为2GB的操作系统上。</li>
+<li>InnoDB 支持外键完整性约束（FOREIGN KEY）。存储表中的数据时，每张表的存储都按主键顺序存放，如果没有显示在表定义时指定主键，InnoDB会为每一行生成一个6B的ROWID，并以此作为主键。</li>
+<li>InnoDB 被用在众多需要高性能的大型数据库站点上。</li>
+<li>InnoDB 不创建目录，使用InnoDB时，MySQL 将在MySQL数据目录下创建一个名为ibdata1的10MB大小的自动扩展数据文件，以及两个名为ib_logfile0 和 ib_logfile1 的5MB大小的日志文件。</li>
+</ol>
+<h4 id="MyISAM-存储引擎"><a href="#MyISAM-存储引擎" class="headerlink" title="MyISAM 存储引擎"></a>MyISAM 存储引擎</h4><p>​    <strong>MyISAM 基于ISAM的存储引擎，并对其进行扩展。它是在Web、数据存储和其他应用环境下最常使用的存储引擎之一。MyISAM拥有较高的插入、查询速度，但不支持事务。</strong>主要特性有：</p>
+<ol>
+<li>大文件（63位文件长度）在支持大文件的文件系统和操作系统上被支持。</li>
+<li>当把删除、更新及插入操作混合使用的时候，动态尺寸的行产生更少的碎片。</li>
+<li>每个MyISAM 表最大索引数为64，这可以通过重新编译来改变。每个索引最大的列数是16个。</li>
+<li>最大的键长度是1000B，这也可以通过编译来改变。对于键长度超过250B的情况，一个超过1024B的键将被用上。</li>
+<li>BLOB和TEXT列可以被索引。</li>
+<li>NULL值被允许在索引的列中。这个值占每个键的0~1个字节。</li>
+<li>所有数字键值以高字节优先被存储以允许一个更高的索引压缩。</li>
+<li>每表一个AUTO_INCREMENT列的内部处理。为INSERT和UPADATE操作自动更新这一列。这使得AUTO_INCREMENT列更快（至少10%）。在序列顶的值被删除之后就不能再利用。</li>
+<li>可以把数据文件和索引文件放在不同的目录。</li>
+<li>每个字符列可以有不同的字符集。</li>
+<li>有VARCHAR的表可以固定或动态记录长度。</li>
+<li>VARCHAR和CHAR列可以多达64KB。</li>
+<li>创建数据库时，会产生3个文件，文件的名字以表的名字开始，扩展名指出文件类型：frm文件存储表定义，数据文件的扩展名为.MYD(MYData)，索引文件的扩展名是.MYI(MYIndex)。</li>
+</ol>
+<h4 id="MEMORY-存储引擎"><a href="#MEMORY-存储引擎" class="headerlink" title="MEMORY 存储引擎"></a>MEMORY 存储引擎</h4><p>​    <strong>MEMORY 存储引擎将表中的数据存储到内存中，为查询和引用其他表数据提供快速访问。</strong>MEMORY主要特性有：</p>
+<ol>
+<li>MEMORY表的每个表可以有多达32个索引，每个索引16列，以及500B的最大键长度。</li>
+<li>MEMORY存储引擎执行HASH和BTREE索引。</li>
+<li>可以在一个MEMORY表中有非唯一键。</li>
+<li>MEMORY表使用一个固定的记录长度格式。</li>
+<li>MEMORY不支持BLOB或TEXT列。</li>
+<li>MEMORY支持AUTO_INCREMENT列和对可包含NULL值的列的索引。</li>
+<li>MEMORY表在所有客户端之间共享</li>
+<li>MEMORY表内容被存在内存中，内存是MEMORY表和服务器在查询处理时的空闲中创建的内部表共享。</li>
+<li>当不再需要MEMORY表的内容时，要释放被MEMORY表使用的内存，应该执行DELETE FROM或TRUNCATE TABLE，或者删除整个表（使用DROP TABLE）。</li>
+</ol>
+<h4 id="存储引擎的选择"><a href="#存储引擎的选择" class="headerlink" title="存储引擎的选择"></a>存储引擎的选择</h4><p>​    不同的存储引擎都有各自的特点，以适应不同的需求，那么在做选择权，首先需要考虑每一个存储引擎提供了那些不同的功能。</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fxmv2e39n1j30zs0am0yf.jpg" alt="Screen Shot 2018-11-27 at 7.48.40 PM"></p>
+<p>​    如果要提供提交、回滚和崩溃恢复能力的事务安全能力，并要求实现并发控制，InnoDB是个很好的选择。如果数据表主要用来插入和查询记录的，则MyISAM引擎能提供较高的处理效率；如果只是临时存放数据，数据量不大，并且不需要较高的数据安全性，可以选择将数据保存在内存中的Memory引擎，MySQL中使用该引擎作为临时表，存放查询的中间结果。如果只有INSERT 和SELECT 操作，可以选择Archive引擎，它还支持高并发的插入操作，但是本身并不是事务安全的，非常适合存储归档数据，例如记录日志信息可以使用Archive引擎。</p>
+<p>​    一个数据库中多个表可以使用不同引擎以满足各种性能和实际需求，选择使用合适的存储引擎，将会提高整个数据库的性能。</p>
+<h3 id="综合案例——数据库的创建和删除"><a href="#综合案例——数据库的创建和删除" class="headerlink" title="综合案例——数据库的创建和删除"></a>综合案例——数据库的创建和删除</h3><ol>
+<li><p>登录数据库</p>
+<p><code>mysql -uroot -p</code>（本机登录可以不用写 -h localhost）</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxmw2601p0j31340i0n00.jpg" alt="Screen Shot 2018-11-27 at 8.21.36 PM"></p>
+</li>
+<li><p>创建数据库zoo</p>
+<p><code>CREATE DATABASE zoo;</code> 创建数据库 zoo</p>
+<p><code>SHOW DATABASES;</code> 查看数据库里有哪些数据和，查看数据库zoo是否创建成功。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxmw20wfpsj30ks0ggt9o.jpg" alt="创建数据库"></p>
+</li>
+<li><p>选择当前数据库为zoo</p>
+<p><code>USE zoo;</code></p>
+</li>
+<li><p>查看数据库zoo的信息</p>
+<p><code>SHOW CREATE DATABASE zoo;</code></p>
+<p><code>SHOW CREATE DATABASE zoo\G</code></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxmw61klyqj30yi0a2gm9.jpg" alt="查看数据库zoo的信息"></p>
+</li>
+<li><p>删除数据库zoo</p>
+<p><code>DROP DATABASE zoo;</code> 删除zoo这个数据库</p>
+<p><code>SHOW DATABASES;</code> 查看数据库是否删除</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxmw7sb04zj30s40gimyi.jpg" alt="删除数据库zoo"></p>
+</li>
+</ol>
+<h3 id="如何查看默认存储引擎"><a href="#如何查看默认存储引擎" class="headerlink" title="如何查看默认存储引擎"></a>如何查看默认存储引擎</h3><ol>
+<li><p>查看系统中所有的存储引擎</p>
+<p><code>SHOW ENGINES;</code></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxmw9z0ykoj31o80hmn06.jpg" alt="查看系统中所有的存储引擎"></p>
+</li>
+<li><p>查看默认存储引擎</p>
+<p><code>SHOW VARIABLES LIKE &#39;storage_engine&#39;;</code> 查看默认存储引擎的SQL语句也同时验证了之前说默认存储引擎为InnoDB。</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxmwf30ah2j30ps0bs757.jpg" alt="查看默认存储引擎"></p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/28/数据库基础/" rel="next" title="数据库基础">
+                <i class="fa fa-chevron-left"></i> 数据库基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/08/数据表的基本操作/" rel="prev" title="数据表的基本操作">
+                数据表的基本操作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpg"
+                alt="oOC" />
+            
+              <p class="site-author-name" itemprop="name">oOC</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/makeupstories" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:david.yfwei@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://ws3.sinaimg.cn/large/006tNc79gy1fvrgc783ovj30e80e877e.jpg" target="_blank" title="Wechat">
+                      
+                        <i class="fa fa-fw fa-wechat"></i>Wechat</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库的基本操作"><span class="nav-number">1.</span> <span class="nav-text">数据库的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建数据库"><span class="nav-number">1.1.</span> <span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除数据库"><span class="nav-number">1.2.</span> <span class="nav-text">删除数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库存储引擎"><span class="nav-number">1.3.</span> <span class="nav-text">数据库存储引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL-存储引擎简介"><span class="nav-number">1.3.1.</span> <span class="nav-text">MySQL 存储引擎简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#InnoDB-存储引擎"><span class="nav-number">1.3.2.</span> <span class="nav-text">InnoDB 存储引擎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MyISAM-存储引擎"><span class="nav-number">1.3.3.</span> <span class="nav-text">MyISAM 存储引擎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MEMORY-存储引擎"><span class="nav-number">1.3.4.</span> <span class="nav-text">MEMORY 存储引擎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储引擎的选择"><span class="nav-number">1.3.5.</span> <span class="nav-text">存储引擎的选择</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#综合案例——数据库的创建和删除"><span class="nav-number">1.4.</span> <span class="nav-text">综合案例——数据库的创建和删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何查看默认存储引擎"><span class="nav-number">1.5.</span> <span class="nav-text">如何查看默认存储引擎</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">oOC</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">31.8k</span>
+  
+</div>
+
+
+<div class="powered-by">
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共31.8k字</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'MtFMBMeoqnRp82yW5VnxAovf-gzGzoHsz',
+        appKey: '1Il9QAssSHh1gbWrsXx65FkG',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

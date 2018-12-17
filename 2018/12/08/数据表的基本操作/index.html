@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/w_128px.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/w_48px.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/w_32px.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/w_48px.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MySQL," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="数据表的基本操作创建数据表​    所谓创建数据表，指的是在已经创建好的数据库中建立新表。创建数据表的过程是规定数据列的属性的过程，同时也是实施数据完整性（包括实体完整性、引用完整性和域完整性等）约束的过程。 创建表的语法形式​    数据表属于数据库，在创建数据表之前，我们需要指定我们操作哪个库下的哪个表，如果没有选择数据库会抛出‘No database selected’的错误。 ​    创">
+<meta name="keywords" content="MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据表的基本操作">
+<meta property="og:url" content="http://yoursite.com/2018/12/08/数据表的基本操作/index.html">
+<meta property="og:site_name" content="MakeUpStories.">
+<meta property="og:description" content="数据表的基本操作创建数据表​    所谓创建数据表，指的是在已经创建好的数据库中建立新表。创建数据表的过程是规定数据列的属性的过程，同时也是实施数据完整性（包括实体完整性、引用完整性和域完整性等）约束的过程。 创建表的语法形式​    数据表属于数据库，在创建数据表之前，我们需要指定我们操作哪个库下的哪个表，如果没有选择数据库会抛出‘No database selected’的错误。 ​    创">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwly1fxooghgx1cj30na0oe40r.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fxoor9plc3j30sq0bw75d.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwly1fxopgmoblfj30tk0o6mzq.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwly1fxopmqr39ij30ty0k6aca.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fxot3p9eejj30r60lojuv.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fxpbu9agatj30tk0b8jsf.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fxpc3uhy3rj30ui0cijsk.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fxpdd1wziwj30rc0ci3zl.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fxpdlvqs2jj30vo0nidhl.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fxpdnfjcwyj30tk0d4dhc.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwly1fxq5oictonj30h20bimxq.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fxq5q2l9zpj30oe0mm766.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwly1fxq5x3fgvuj30r40a8t9n.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fxq5ybzi5rj30s20ccgmp.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fxqbcuvotqj30qi0aymy4.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fxqbfzbny9j30v40biwfj.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fxqbrmcjwwj30qo0aijsf.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fxqbttfq4lj30ry0csmyj.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fxqbzdt3ckj30qc0ccwft.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fxqc1b3x5uj30s00fgq4o.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwly1fxqc5nk4e8j30sa0dc402.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fxqc5wtir0j30s20e075u.jpg">
+<meta property="og:updated_time" content="2018-12-17T11:51:25.290Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据表的基本操作">
+<meta name="twitter:description" content="数据表的基本操作创建数据表​    所谓创建数据表，指的是在已经创建好的数据库中建立新表。创建数据表的过程是规定数据列的属性的过程，同时也是实施数据完整性（包括实体完整性、引用完整性和域完整性等）约束的过程。 创建表的语法形式​    数据表属于数据库，在创建数据表之前，我们需要指定我们操作哪个库下的哪个表，如果没有选择数据库会抛出‘No database selected’的错误。 ​    创">
+<meta name="twitter:image" content="https://ws2.sinaimg.cn/large/006tNbRwly1fxooghgx1cj30na0oe40r.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/08/数据表的基本操作/"/>
+
+
+
+
+
+  <title>数据表的基本操作 | MakeUpStories.</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MakeUpStories.</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Grap life by the horns.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/08/数据表的基本操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="oOC">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MakeUpStories.">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据表的基本操作</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-08T18:29:53+08:00">
+                2018-12-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/08/数据表的基本操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/08/数据表的基本操作/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  15
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="数据表的基本操作"><a href="#数据表的基本操作" class="headerlink" title="数据表的基本操作"></a>数据表的基本操作</h2><h3 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h3><p>​    所谓创建数据表，指的是在已经创建好的数据库中建立新表。创建数据表的过程是规定数据列的属性的过程，同时也是实施数据完整性（包括实体完整性、引用完整性和域完整性等）约束的过程。</p>
+<h4 id="创建表的语法形式"><a href="#创建表的语法形式" class="headerlink" title="创建表的语法形式"></a>创建表的语法形式</h4><p>​    数据表属于数据库，在创建数据表之前，我们需要指定我们操作<strong>哪个库下的哪个表</strong>，如果没有选择数据库会抛出‘No database selected’的错误。</p>
+<p>​    创建数据表的语句为<code>CREATE TABLE &lt;表名&gt;;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE &lt;表名&gt;</span><br><span class="line">(</span><br><span class="line">字段名1，数据类型[列级别约束条件][默认值],</span><br><span class="line">字段名2，数据类型[列级别约束条件][默认值],</span><br><span class="line">……</span><br><span class="line">[表级别约束条件]</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>​    使用CREATE TABLE创建表时，需要指定以下信息：</p>
+<ul>
+<li>要创建的表的名称，不区分大小写，不能使用SQL语言中的关键字，如DROP、ALTER、INSERT等</li>
+<li>数据表中每一个列（字段）的名称和数据类型，如果创建多个列，要用逗号隔开。</li>
+</ul>
+<p>[e.g.]</p>
+<p>首先创建数据库 test_db：</p>
+<p><code>CREATE DATABASE test_db;</code></p>
+<p>你想要把表创建在哪个数据库，就选择使用哪个数据库：</p>
+<p><code>USE test_db;</code></p>
+<p>创建一个名叫 tb_emp1的表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tb_emp1</span><br><span class="line">(</span><br><span class="line">id		INT(11),</span><br><span class="line">name	VARCHAR(25),</span><br><span class="line">deptid	INT(11),</span><br><span class="line">salary	FLOAT</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>查看表是否创建成功：</p>
+<p><code>SHOW TABLES;</code></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxooghgx1cj30na0oe40r.jpg" alt="image-20181129093119599"></p>
+<p>（书P49页，第一句话中的tb_tmp1是错的，应该是tb_emp1）</p>
+<p>另外，创建表之后还可以查看表结构</p>
+<p><code>DESC tb_emp1;</code></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fxoor9plc3j30sq0bw75d.jpg" alt="image-20181129094143420"></p>
+<h4 id="使用主键约束"><a href="#使用主键约束" class="headerlink" title="使用主键约束"></a>使用主键约束</h4><p>​    主键，又称做主码，是表中一列或多列的组合。主键约束（Primary Key Constraint）要求主键列的数据唯一，并且不能为空。主键的作用有，能够唯一地标识表中的一条记录，可以结合外键来定义不同数据表之间的关系，并且可以加快数据库查询的速度（数据库最为重要的功能是查询！相信我，查询会让你头一个头两个大）。主键和记录之间的关系如同身份证和人之间的关系，它们之间是一一对应的，主键是约束条件，人是一条记录，人的名字、爱好等是属性也就是字段，字段组成了一个完整的人，也就是一条字段。</p>
+<h5 id="单字段主键"><a href="#单字段主键" class="headerlink" title="单字段主键"></a>单字段主键</h5><p>​    单字段主键由一个字段组成，sql语句格式分为以下两种情况。</p>
+<ul>
+<li><p>在定义列的同时指定主键</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE 表名</span><br><span class="line">(</span><br><span class="line">字段名 数据类型 PRIMARY KEY [默认值], </span><br><span class="line">    # [] 含义为 可有可无，没有就取默认值</span><br><span class="line">    # 包括 数据类型指定的长度也是可有可无，没有就取默认值</span><br><span class="line">    ...</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"># [e.g]</span><br><span class="line">CREATE TABLE tb_emp2</span><br><span class="line">(</span><br><span class="line">id		INT(11) PRIMARY KEY,</span><br><span class="line">name	VARCHAR(25),</span><br><span class="line">deptid	INT(11),</span><br><span class="line">salary	FLOAT</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在定义完所有列之后指定主键</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tb_emp3</span><br><span class="line">(</span><br><span class="line">id 		INT(11),</span><br><span class="line">name 	VARCHAR(25),</span><br><span class="line">deptid 	INT(11),</span><br><span class="line">salary	FLOAT,</span><br><span class="line">PRIMARY KEY(id)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>查看结果，执行后发现结果一样，都在id 字段上设置了主键约束。</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxopgmoblfj30tk0o6mzq.jpg" alt="image-20181129100606263"></p>
+<h5 id="多字段联合主键"><a href="#多字段联合主键" class="headerlink" title="多字段联合主键"></a>多字段联合主键</h5><p>主键由多个字段联合组成</p>
+<p><code>PRIMARY KEY [字段1，字段2，... ，字段n]</code></p>
+<p>定义数据表tb_emp4,假设表中没有主键id，为了确定一个员工，可以将name、depid联合起来作为主键。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tb_emp4</span><br><span class="line">(</span><br><span class="line">name	VARCHAR(25),</span><br><span class="line">deptid	INT(11),</span><br><span class="line">salary	FLOAT,</span><br><span class="line">PRIMARY KEY(name,deptid)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>​    查看结果，可以看到创建了一个名称为tb_emp4的表，name字段和deptid字段组合在一起成为了tb_emp4的多字段联合主键。</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxopmqr39ij30ty0k6aca.jpg" alt="image-20181129101158362"></p>
+<h4 id="使用外键约束"><a href="#使用外键约束" class="headerlink" title="使用外键约束"></a>使用外键约束</h4><p>​    外键用来在两个的数据之间建立链接，它可以是一列或者多列，一个表可以有一个或者多个外键。外键对应的事参照完整性，一个表的外键可以为空值，若不为空，则每一个外键值必须等于另一个表中主键的某个值。</p>
+<p>​    外键：首先它是表中的一个字段，它可以不是本表的主键，但对应另一个表的主键。<strong>外键主要作用是保证数据引用的完整性，定义外键后，不允许删除在另一个表中具有关联关系的行（记录）（可以删除没有关联关系的行）。</strong></p>
+<p>[e.g.]</p>
+<p>​    部门表tb_dept的主键是id，在员工表tb_emp5中有一个字段deptid与部门表tb_dept中的id关联。</p>
+<p>​    主表（父表）：对于两个具有关联关系的表而言，相关联字段中主键所在的那个表即是主表。</p>
+<p>​    从表（子表）：对于两个具有关联关系的表而言，相关联字段中外键所在的那个表即是从表。</p>
+<p>创建外键的sql语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tb_emp5</span><br><span class="line">(</span><br><span class="line">字段名	数据类型 约束条件，</span><br><span class="line">	...,</span><br><span class="line">[CONSTRAINT &lt;外键名&gt;] FOREIGN KEY 字段名2[,字段名2,...]</span><br><span class="line">REFERENCES &lt;主表名&gt; 主键列1 [,主键列2,...]</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>​    “外键名”为定义的外键约束的名称，一个表中不能有相同名称的外键；“字段名”表示子表需要添加外键约束的字段列；“主表名”即被子表外键所以来的表的名称；“主键列”表示主表中定义的主键列，或者列组合。</p>
+<p>[e.g.]</p>
+<p>创建一个部门表tb_dept1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tb_dept1</span><br><span class="line">(</span><br><span class="line">id			INT(11) PRIMARY KEY,</span><br><span class="line">name		VARCHAR(22) NOT NULL,</span><br><span class="line">location	VARCHAR(50)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>定义数据表tb_emp5,让它的键deptid作为外键关联到tb_dept1的主键id</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tb_emp5</span><br><span class="line">(</span><br><span class="line">id		INT(11) PRIMARY KEY,</span><br><span class="line">name	VARCHAR(25),</span><br><span class="line">deptid	INT(11),</span><br><span class="line">salary	FLOAT,</span><br><span class="line">CONSTRAINT fk_emp_dept1 FOREIGN KEY(deptid) REFERENCES tb_dept1(id)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p><strong>[小tips]</strong></p>
+<p>​    <strong>关联指的是在关系型数据库中，相关表之间的联系。它是通过相容或相同的属性或属性组来表示的。子表的外键必须关联父表的主键，且关联字段的数据类型必须匹配，如果类型不一样，则创建子表时，就会报错”ERROR 1005 (HY000):Can’t create table ‘database.tablename’(error:150)”。</strong></p>
+<h4 id="使用非空约束"><a href="#使用非空约束" class="headerlink" title="使用非空约束"></a>使用非空约束</h4><p>​    非空约束（Not Null Constraint）指字段的值不能为空。如果用户在添加数据时，在非空约束字段，没有给指定值，数据库系统就会报错。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tb_emp5</span><br><span class="line">(</span><br><span class="line">字段名	数据类型 NOT NULL，</span><br><span class="line">	...</span><br><span class="line">)</span><br><span class="line"># 虽然说大小写无关，字段名可以写成一行，但是大写和一定格式的书写，</span><br><span class="line"># 能让你一目了然，更好的理解。</span><br></pre></td></tr></table></figure>
+<p>[e.g.]</p>
+<p>定义数据表 tb_emp6，指定员工的名称不能为空</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tb_emp6</span><br><span class="line">(</span><br><span class="line">id		INT(11) 	PRIMARY KEY,</span><br><span class="line">name	VARCHAR(25) NOT NULL,</span><br><span class="line">deptid	INT(11)	,</span><br><span class="line">salary	FLOAT</span><br><span class="line">); # 注意分号！！！！</span><br></pre></td></tr></table></figure>
+<p>查看结果，发现tp_emp6表中的name字段的 Null 列为NO，意味着，插入之不能为空。</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fxot3p9eejj30r60lojuv.jpg" alt="image-20181129121204479"></p>
+<h4 id="使用唯一性约束"><a href="#使用唯一性约束" class="headerlink" title="使用唯一性约束"></a>使用唯一性约束</h4><p>​    唯一性约束（Unique Constraint）要求该列唯一，允许为空，只能出现一个空值。唯一约束可以确保一列或者几列不出现重复值。</p>
+<p>唯一性约束语法：<code>字段名 数据类型 UNIQUE</code></p>
+<p>这里仅仅是写了唯一性约束的语法，没有写在完整的创建表时定义字段的那部分中。</p>
+<ol>
+<li><p>在定义完列之后直接指定唯一约束：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tb_dept2</span><br><span class="line">(</span><br><span class="line">id			INT(11)		PRIMARY KEY,</span><br><span class="line">name		VARCHAR(22)	UNIQUE,  </span><br><span class="line">location	VARCHAR(50)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在定义完所有列之后指定唯一约束</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tb_dept3</span><br><span class="line">(</span><br><span class="line">id			INT(11)		PRIMARY KEY,</span><br><span class="line">name		VARCHAR(22)	UNIQUE,  </span><br><span class="line">location	VARCHAR(50),</span><br><span class="line">CONSTRAINT	STH UNIQUE(name)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>以上两种方式都可以用来指定唯一约束。</p>
+<p>UNIQUE 和 PRIMARY KEY 是有区别的：</p>
+<ul>
+<li>一个表中可以有多个字段声明为UNIQUE，但只能有一个PRIMARY KEY声明</li>
+<li>PRIMARY KEY 是唯一且不能有空值，而UNIQUE允许空值的存在</li>
+<li>PRIMARY KEY 当表定义主键将自动创建主键索引，而UNIQUE NOT NULL的组合没有索引一说</li>
+</ul>
+</li>
+</ol>
+<h4 id="使用默认约束"><a href="#使用默认约束" class="headerlink" title="使用默认约束"></a>使用默认约束</h4><p>​    默认约束（Default Constraint）指定某列的默认值。如男性同学较多，性别就可以默认为‘男’。如果插入一条新的记录时没有为这个字段赋值，那么系统会自动为这个字段赋值为‘男’。</p>
+<p>默认约束的语法：<code>字段名 数据类型 DEFAULT 默认值</code></p>
+<p>[e.g.]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tb_emp7</span><br><span class="line">(</span><br><span class="line">id		INT(11)		PRIMARY KEY,</span><br><span class="line">name	VARCHAR(25)	NOT NULL,</span><br><span class="line">deptid	INT(11) 	DEFAULT 1111,</span><br><span class="line">salary 	FLOAT</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fxpbu9agatj30tk0b8jsf.jpg" alt="image-20181129230022612"></p>
+<p>​    可以发现字段deptid行的default列有了默认值为1111，意味着当你在新插入的记录如果没有指定部门编号，则默认值为1111。</p>
+<p>[小tips]</p>
+<p>​    当你插入NULL时，默认值会被改变，NULL被当做一个值插入，不会采用默认值。</p>
+<h4 id="设置表的属性值自动增加"><a href="#设置表的属性值自动增加" class="headerlink" title="设置表的属性值自动增加"></a>设置表的属性值自动增加</h4><p>​    在数据库应用中，经常希望在每次插入新记录的时候，系统自动生成字段的主键值，这时我们就可以通过为表的主键添加 AUTO_INCREMENT 关键字来实现。**默认的，在MySQL 中AUTO_INCREMENT的初始值为1，每新增一条记录，字段值自动+1。一个表只能有一个字段使用AUTO_INCREMENT约束，且该字段必须为主键的一部分。AUTO_INCREMENT约束的字段可以是任何整数类型（TINYINT、SMALLIN、INT、BIGINT等）。</p>
+<p>设置表的属性值自动增长的语法：</p>
+<p><code>字段名 数据类型 AUTO_INCREMENT</code></p>
+<p>[e.g.]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tb_emp8</span><br><span class="line">(</span><br><span class="line">id		INT(11)		PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">name	VARCHAR(25)	NOT	NULL,</span><br><span class="line">deptid	INT(11),</span><br><span class="line">salary	FLOAT</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxpc3uhy3rj30ui0cijsk.jpg" alt="image-20181129230935539"></p>
+<p>​    可以发现在表tb_emp8中，字段名id行的Extra列多了个auto_increment，当你在插入记录的时候，默认的自增字段ID的值从1开始，每次添加一条新纪录，该值自动加1。</p>
+<h3 id="查看数据表结构"><a href="#查看数据表结构" class="headerlink" title="查看数据表结构"></a>查看数据表结构</h3><p>​    使用SQL语句创建好数据表之后，可以查看表结构的定义，以确认表的定义是否正确。在MySQL中，查看表结构可以使用DESCRIBE 和SHOW CREATE TABLE语句。</p>
+<h4 id="查看表基本结构语句-DESCRIBE"><a href="#查看表基本结构语句-DESCRIBE" class="headerlink" title="查看表基本结构语句 DESCRIBE"></a>查看表基本结构语句 DESCRIBE</h4><p>​    DESCRIBE/DESC 语句可以查看表的字段信息，其中包括：字段名、字段数据类型、是否为主键、是否有默认值等。其实之前已经用到过很多次了。</p>
+<p>语法规则：</p>
+<p><code>DESCRIBE 表名;</code>  </p>
+<p><code>DESC 表名;</code>（简写）</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fxpdd1wziwj30rc0ci3zl.jpg" alt="image-20181129235302132"></p>
+<p>其中，各个字段的含义分别解释：</p>
+<ul>
+<li>NULL: 表示该列是否可以存储NULL值</li>
+<li>KEY:表示该列是否已编制索引。PRI表示该列是表主键的一部分；UNI表示该列是UNIQUE索引的一部分；MUL表示在列中某个给定值允许出现多次。</li>
+<li>DEFAULT:表示该列是否有默认值，如果有的话值是多少。</li>
+<li>EXTRA:表示可以获取的与给定列有关的附加信息，例如AUTO_INCREMENT等。</li>
+</ul>
+<h4 id="查看表详细结构语句-SHOW-CREATE-TABLE"><a href="#查看表详细结构语句-SHOW-CREATE-TABLE" class="headerlink" title="查看表详细结构语句 SHOW CREATE TABLE"></a>查看表详细结构语句 SHOW CREATE TABLE</h4><p>​    SHOW CREATE TABLE 语句可以用来显示创建表时的CREATE TABLE语句。</p>
+<p>语法格式：</p>
+<p><code>SHOW CREATE TABLE 表名;</code></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fxpdlvqs2jj30vo0nidhl.jpg" alt="image-20181130000130950"></p>
+<p><code>SHOW CREATE TABLE 表名\G</code></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxpdnfjcwyj30tk0d4dhc.jpg" alt="image-20181130000300888"></p>
+<h3 id="修改数据表"><a href="#修改数据表" class="headerlink" title="修改数据表"></a>修改数据表</h3><p>​    修改表指的是修改数据库中已经存在的数据表的结构。MySQL使用ALTER TABLE语句修改表。常用的修改表的操作有：修改表名、修改字段数据类型或字段名、增加和删除字段、修改字段的排列位置、更改表的存储引擎、删除表的外键约束等。</p>
+<h4 id="修改表名"><a href="#修改表名" class="headerlink" title="修改表名"></a>修改表名</h4><p>语法规则</p>
+<p><code>ALTER TABLE &lt;旧表名&gt; RENAME [TO] &lt;新表名&gt;;</code></p>
+<p>其中TO为可选参数，使用与否均不影响结果。</p>
+<p>[e.g.]</p>
+<p>将数据表tb_dept1改名为tb_deptment1</p>
+<ol>
+<li><p>查看数据库中的所有表</p>
+<p><code>SHOW TABLES;</code></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxq5oictonj30h20bimxq.jpg" alt="image-20181130161246927"></p>
+</li>
+<li><p>将数据表tb_dept1改名为tb_deptment1</p>
+<p><code>ALTER TABLE tb_dept1 RENAME tb_deptment1;</code></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxq5q2l9zpj30oe0mm766.jpg" alt="image-20181130161419225"></p>
+</li>
+</ol>
+<p>[小tips]</p>
+<p>​    修改表名称后，可以通过DESC命令来查看修改前后两个表的结构，修改表名并不修改表的结构，因此修改名称后的表和修改名称前的表的结构必然是相同的。</p>
+<h4 id="修改字段的数据类型"><a href="#修改字段的数据类型" class="headerlink" title="修改字段的数据类型"></a>修改字段的数据类型</h4><p>​    修改字段的数据类型，就是把字段的数据类型转换成另外一种数据类型。</p>
+<p>语法规则：</p>
+<p><code>ALTER TABLE &lt;表名&gt; MODIFY &lt;字段名&gt; &lt;数据类型&gt;;</code></p>
+<p>​    其中，‘表名’ 指的是你想要修改的数据类型所在的表的名称，‘字段名’指的是需要修改的字段，‘数据类型’指的是修改后的字段的新数据类型。</p>
+<p>[e.g.]</p>
+<p>将数据表 tb_dept1 中 name 字段的数据类型由 VARCHAR(22) 修改成 VARCHAR(30)</p>
+<ol>
+<li><p>查看表结构</p>
+<p><code>DESC tb_dept1;</code></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxq5x3fgvuj30r40a8t9n.jpg" alt="image-20181130162104262"></p>
+</li>
+<li><p>修改</p>
+<p><code>ALTER TABLE tb_dept1 MODIFY name VARCHAR(30);</code></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxq5ybzi5rj30s20ccgmp.jpg" alt="image-20181130162215549"></p>
+</li>
+</ol>
+<h4 id="修改字段名"><a href="#修改字段名" class="headerlink" title="修改字段名"></a>修改字段名</h4><p>语法规则</p>
+<p><code>ALTER TABLE &lt;表名&gt; CHANGE &lt;旧字段&gt; &lt;新字段&gt; &lt;新数据类型&gt;;</code></p>
+<p>​    其中，‘旧字段’指的是修改前的字段名；‘新字段’指的是修改后的字段名；‘新数据类型’指修改后的数据类型，如果不需要修改字段的数据类型，可以将新数据类型设置成与原来一样即可，但数据类型不能为空。</p>
+<p>[e.g.]</p>
+<p>将数据表tb_dept1中的location字段名称改为loc，数据类型保持不变</p>
+<ol>
+<li><p>sql 语句</p>
+<p><code>ALTER TABLE tb_dept1 CHANGE location loc VARCHAR(50);</code></p>
+</li>
+<li><p>使用DESC查看表tb_dept1</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fxqbcuvotqj30qi0aymy4.jpg" alt="image-20181130192913299"></p>
+</li>
+<li><p>将tb_dept1中loc字段名称再改回location，同时将数据类型变为VARCHAR(60)</p>
+<p><code>ALTER TABLE tb_dept1 CHANGE loc location VARCHAR(60);</code></p>
+</li>
+<li><p>再次查看tb_dept1</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxqbfzbny9j30v40biwfj.jpg" alt="image-20181130193213418"></p>
+</li>
+</ol>
+<p>[小tips]</p>
+<p>​    CHANGE 和 MODIFY 有区别 MODIFY 单纯用来修改数据类型，而CHANGE 可以修改字段名和数据类型，但是CHANGE也可以实现和MODIFY一样的效果设置一样的新名字就可以，<strong>要注意修改数据类型，有可能会影响到数据表中已经有的数据记录，因此，当数据表中已经有数据时，不要轻易修改数据类型。</strong></p>
+<h4 id="添加字段"><a href="#添加字段" class="headerlink" title="添加字段"></a>添加字段</h4><p>​    随着业务需求的变化，可能需要在已经存在的表中添加新的字段。</p>
+<p>添加字段的语法规则：</p>
+<p><code>ALTER TABLE &lt;表名&gt; ADD &lt;新字段名&gt; &lt;数据类型&gt; [约束条件] [FIRST | AFTER 已经存在字段];</code></p>
+<p>[小tips]</p>
+<p>​    注意 ：‘FIRST’ 或 <strong>‘AFTER 已经存在字段名’</strong>，用于指定新增的字段在表中的位置，如果没有添加参数，则默认将新添加的字段设置为数据表的最后列。 </p>
+<h5 id="添加无完整性约束条件的字段"><a href="#添加无完整性约束条件的字段" class="headerlink" title="添加无完整性约束条件的字段"></a>添加无完整性约束条件的字段</h5><p>[e.g.]</p>
+<p>在数据表tb_dept1中添加一个没有完整性约束的INT类型的字段 managerid</p>
+<ol>
+<li><p>sql语句</p>
+<p><code>ALTER TABLE tb_dept1 ADD managerid INT(10);</code></p>
+</li>
+<li><p>查看表tb_dept1</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxqbrmcjwwj30qo0aijsf.jpg" alt="image-20181130194324583"></p>
+</li>
+</ol>
+<h5 id="添加有完整性约束条件的字段"><a href="#添加有完整性约束条件的字段" class="headerlink" title="添加有完整性约束条件的字段"></a>添加有完整性约束条件的字段</h5><p>[e.g.]</p>
+<p>在数据表tb_dept1中添加一个不能为空的 VARCHAR(12)类型的字段column1</p>
+<ol>
+<li><p>sql语句</p>
+<p><code>ALTER TABLE tb_dept1 ADD column1 VARCHAR(12) NOT NULL;</code></p>
+</li>
+<li><p>查看表tb_dept1</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxqbttfq4lj30ry0csmyj.jpg" alt="image-20181130194531269"></p>
+</li>
+</ol>
+<h5 id="在表的第一列添加一个字段"><a href="#在表的第一列添加一个字段" class="headerlink" title="在表的第一列添加一个字段"></a>在表的第一列添加一个字段</h5><p>[e.g.]</p>
+<p>在数据表tb_dept1 中添加一个INT类型的字段column2</p>
+<ol>
+<li><p>sql语句</p>
+<p><code>ALTER TABLE tb_dept1 ADD column2 INT(11) FIRST;</code></p>
+</li>
+<li><p>查看表tb_dept1</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fxqbzdt3ckj30qc0ccwft.jpg" alt="image-20181130195052065"></p>
+</li>
+</ol>
+<h5 id="在表的指定列之后添加一个字段"><a href="#在表的指定列之后添加一个字段" class="headerlink" title="在表的指定列之后添加一个字段"></a>在表的指定列之后添加一个字段</h5><p>[e.g.]</p>
+<p>在数据表tb_dept1 中 name列后添加一个INT类型的字段column3</p>
+<ol>
+<li><p>sql语句</p>
+<p><code>ALTER TABLE tb_dept1 ADD column3 INT(11) AFTER name;</code></p>
+</li>
+<li><p>查看表tb_dept1</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxqc1b3x5uj30s00fgq4o.jpg" alt="image-20181130195243048"></p>
+</li>
+</ol>
+<h4 id="删除字段"><a href="#删除字段" class="headerlink" title="删除字段"></a>删除字段</h4><p>​    删除字段是将数据表中的某个字段从表中移除</p>
+<p>语法规则：</p>
+<p><code>ALTER TABLE &lt;表名&gt; DROP &lt;字段名&gt;;</code></p>
+<p>[e.g.]</p>
+<p>删除数据表tb_dept1表中的column2字段</p>
+<ol>
+<li><p>查看tb_dept1表结构</p>
+<p><code>DESC tb_dept1;</code></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxqc5nk4e8j30sa0dc402.jpg" alt="image-20181130195653550"></p>
+</li>
+<li><p>sql语句</p>
+<p><code>ALTER TABLE tb_dept1 DROP column2;</code></p>
+</li>
+<li><p>查看tb_dept1表</p>
+<p><code>DESC tb_dept1;</code></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxqc5wtir0j30s20e075u.jpg" alt="image-20181130195708927"></p>
+</li>
+</ol>
+<h4 id="修改字段的排列位置"><a href="#修改字段的排列位置" class="headerlink" title="修改字段的排列位置"></a>修改字段的排列位置</h4><p>​    对于一个数据表来说，在创建的时候，字段在表中的顺序已经确定了，但是表的结构并不是完全不可以改变的，可以通过ALTER TABLE来改变表中的字段的相对位置。</p>
+<p>语法规则：</p>
+<p><code>ALTER TABLE &lt;表名&gt; MODIFY &lt;字段1&gt; &lt;数据类型&gt; FIRST|AFTER &lt;字段2&gt;;</code></p>
+<p>​    ‘字段1’指要修改的字段位置，‘数据类型’指‘字段1’的数据类型，‘FIRST’为可选参数，指将‘字段1’修改为表的第一个子弹，‘AFTER 字段2’指将‘字段1’插入到‘字段2’后面。</p>
+<h5 id="修改字段为表的第一个字段"><a href="#修改字段为表的第一个字段" class="headerlink" title="修改字段为表的第一个字段"></a>修改字段为表的第一个字段</h5><h5 id="修改字段到表的指定列之后"><a href="#修改字段到表的指定列之后" class="headerlink" title="修改字段到表的指定列之后"></a>修改字段到表的指定列之后</h5><h4 id="更改表的存储引擎"><a href="#更改表的存储引擎" class="headerlink" title="更改表的存储引擎"></a>更改表的存储引擎</h4><h4 id="删除表的外键约束"><a href="#删除表的外键约束" class="headerlink" title="删除表的外键约束"></a>删除表的外键约束</h4><h3 id="删除数据表"><a href="#删除数据表" class="headerlink" title="删除数据表"></a>删除数据表</h3><h4 id="删除没有被关联的表"><a href="#删除没有被关联的表" class="headerlink" title="删除没有被关联的表"></a>删除没有被关联的表</h4><h4 id="删除被其他表关联的主表"><a href="#删除被其他表关联的主表" class="headerlink" title="删除被其他表关联的主表"></a>删除被其他表关联的主表</h4><h3 id="综合案例——数据表的基本操作"><a href="#综合案例——数据表的基本操作" class="headerlink" title="综合案例——数据表的基本操作"></a>综合案例——数据表的基本操作</h3><h3 id="专家解惑"><a href="#专家解惑" class="headerlink" title="专家解惑"></a>专家解惑</h3><ol>
+<li>表删除操作需谨慎</li>
+<li>每一个表中都要有一个主键么？</li>
+<li>并不是每个表都可以任意选择存储引擎</li>
+<li>带AUTO_INCREMENT约束的字段值是从1开始的么？</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/03/数据库的基本操作/" rel="next" title="数据库的基本操作">
+                <i class="fa fa-chevron-left"></i> 数据库的基本操作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpg"
+                alt="oOC" />
+            
+              <p class="site-author-name" itemprop="name">oOC</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/makeupstories" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:david.yfwei@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://ws3.sinaimg.cn/large/006tNc79gy1fvrgc783ovj30e80e877e.jpg" target="_blank" title="Wechat">
+                      
+                        <i class="fa fa-fw fa-wechat"></i>Wechat</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据表的基本操作"><span class="nav-number">1.</span> <span class="nav-text">数据表的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建数据表"><span class="nav-number">1.1.</span> <span class="nav-text">创建数据表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建表的语法形式"><span class="nav-number">1.1.1.</span> <span class="nav-text">创建表的语法形式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用主键约束"><span class="nav-number">1.1.2.</span> <span class="nav-text">使用主键约束</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#单字段主键"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">单字段主键</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多字段联合主键"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">多字段联合主键</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用外键约束"><span class="nav-number">1.1.3.</span> <span class="nav-text">使用外键约束</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用非空约束"><span class="nav-number">1.1.4.</span> <span class="nav-text">使用非空约束</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用唯一性约束"><span class="nav-number">1.1.5.</span> <span class="nav-text">使用唯一性约束</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用默认约束"><span class="nav-number">1.1.6.</span> <span class="nav-text">使用默认约束</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置表的属性值自动增加"><span class="nav-number">1.1.7.</span> <span class="nav-text">设置表的属性值自动增加</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看数据表结构"><span class="nav-number">1.2.</span> <span class="nav-text">查看数据表结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看表基本结构语句-DESCRIBE"><span class="nav-number">1.2.1.</span> <span class="nav-text">查看表基本结构语句 DESCRIBE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看表详细结构语句-SHOW-CREATE-TABLE"><span class="nav-number">1.2.2.</span> <span class="nav-text">查看表详细结构语句 SHOW CREATE TABLE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改数据表"><span class="nav-number">1.3.</span> <span class="nav-text">修改数据表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#修改表名"><span class="nav-number">1.3.1.</span> <span class="nav-text">修改表名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改字段的数据类型"><span class="nav-number">1.3.2.</span> <span class="nav-text">修改字段的数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改字段名"><span class="nav-number">1.3.3.</span> <span class="nav-text">修改字段名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加字段"><span class="nav-number">1.3.4.</span> <span class="nav-text">添加字段</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#添加无完整性约束条件的字段"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">添加无完整性约束条件的字段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#添加有完整性约束条件的字段"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">添加有完整性约束条件的字段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在表的第一列添加一个字段"><span class="nav-number">1.3.4.3.</span> <span class="nav-text">在表的第一列添加一个字段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在表的指定列之后添加一个字段"><span class="nav-number">1.3.4.4.</span> <span class="nav-text">在表的指定列之后添加一个字段</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除字段"><span class="nav-number">1.3.5.</span> <span class="nav-text">删除字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改字段的排列位置"><span class="nav-number">1.3.6.</span> <span class="nav-text">修改字段的排列位置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#修改字段为表的第一个字段"><span class="nav-number">1.3.6.1.</span> <span class="nav-text">修改字段为表的第一个字段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修改字段到表的指定列之后"><span class="nav-number">1.3.6.2.</span> <span class="nav-text">修改字段到表的指定列之后</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更改表的存储引擎"><span class="nav-number">1.3.7.</span> <span class="nav-text">更改表的存储引擎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除表的外键约束"><span class="nav-number">1.3.8.</span> <span class="nav-text">删除表的外键约束</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除数据表"><span class="nav-number">1.4.</span> <span class="nav-text">删除数据表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#删除没有被关联的表"><span class="nav-number">1.4.1.</span> <span class="nav-text">删除没有被关联的表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除被其他表关联的主表"><span class="nav-number">1.4.2.</span> <span class="nav-text">删除被其他表关联的主表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#综合案例——数据表的基本操作"><span class="nav-number">1.5.</span> <span class="nav-text">综合案例——数据表的基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#专家解惑"><span class="nav-number">1.6.</span> <span class="nav-text">专家解惑</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">oOC</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">31.8k</span>
+  
+</div>
+
+
+<div class="powered-by">
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共31.8k字</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'MtFMBMeoqnRp82yW5VnxAovf-gzGzoHsz',
+        appKey: '1Il9QAssSHh1gbWrsXx65FkG',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
