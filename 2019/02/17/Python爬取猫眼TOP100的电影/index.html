@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Python," />
+  <meta name="keywords" content="爬虫,Python," />
 
 
 
@@ -79,18 +79,21 @@
 
 
 
-<meta name="description" content="sys 模块This module provides access to some objects used or maintained by the interpreter and to functions that interact strongly with the interpreter.   环境变量12345&amp;gt;&amp;gt;&amp;gt; import sys # 记住要调用模块 此文章后边">
-<meta name="keywords" content="Python">
+<meta name="description" content="目标提取出猫眼电影 TOP100 的电影名称、时间、评分、图片等信息，提取的站点为 http://maoyan.com/board/4，并将提取的结果以文件的形式保存下来。 抓取分析打开抓取的站点，发现第一页显示排行1-10的电影，第二页显示排行11-20的电影，但是url发生明显改变变为https://maoyan.com/board/4?offset=10比之前的多了一个参数offset=10">
+<meta name="keywords" content="爬虫,Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python——sys模块">
-<meta property="og:url" content="http://yoursite.com/2018/10/16/Python——sys模块/index.html">
+<meta property="og:title" content="Python爬取猫眼TOP100电影">
+<meta property="og:url" content="http://yoursite.com/2019/02/17/Python爬取猫眼TOP100的电影/index.html">
 <meta property="og:site_name" content="MakeUpStories.">
-<meta property="og:description" content="sys 模块This module provides access to some objects used or maintained by the interpreter and to functions that interact strongly with the interpreter.   环境变量12345&amp;gt;&amp;gt;&amp;gt; import sys # 记住要调用模块 此文章后边">
+<meta property="og:description" content="目标提取出猫眼电影 TOP100 的电影名称、时间、评分、图片等信息，提取的站点为 http://maoyan.com/board/4，并将提取的结果以文件的形式保存下来。 抓取分析打开抓取的站点，发现第一页显示排行1-10的电影，第二页显示排行11-20的电影，但是url发生明显改变变为https://maoyan.com/board/4?offset=10比之前的多了一个参数offset=10">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-16T12:23:19.660Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcgy1g09lt0j8rjj31ik0fyte5.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcgy1g09mg466qbj32100bsthx.jpg">
+<meta property="og:updated_time" content="2019-02-17T12:38:03.826Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python——sys模块">
-<meta name="twitter:description" content="sys 模块This module provides access to some objects used or maintained by the interpreter and to functions that interact strongly with the interpreter.   环境变量12345&amp;gt;&amp;gt;&amp;gt; import sys # 记住要调用模块 此文章后边">
+<meta name="twitter:title" content="Python爬取猫眼TOP100电影">
+<meta name="twitter:description" content="目标提取出猫眼电影 TOP100 的电影名称、时间、评分、图片等信息，提取的站点为 http://maoyan.com/board/4，并将提取的结果以文件的形式保存下来。 抓取分析打开抓取的站点，发现第一页显示排行1-10的电影，第二页显示排行11-20的电影，但是url发生明显改变变为https://maoyan.com/board/4?offset=10比之前的多了一个参数offset=10">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006tKfTcgy1g09lt0j8rjj31ik0fyte5.jpg">
 
 
 
@@ -120,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/16/Python——sys模块/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/02/17/Python爬取猫眼TOP100的电影/"/>
 
 
 
 
 
-  <title>Python——sys模块 | MakeUpStories.</title>
+  <title>Python爬取猫眼TOP100电影 | MakeUpStories.</title>
   
 
 
@@ -297,7 +300,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/Python——sys模块/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/17/Python爬取猫眼TOP100的电影/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="oOC">
@@ -314,7 +317,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python——sys模块</h1>
+          <h1 class="post-title" itemprop="name headline">Python爬取猫眼TOP100电影</h1>
         
 
         <div class="post-meta">
@@ -326,8 +329,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-16T14:51:10+08:00">
-                2018-10-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-17T20:34:24+08:00">
+                2019-02-17
               </time>
             
 
@@ -349,8 +352,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python入门/" itemprop="url" rel="index">
-                    <span itemprop="name">Python入门</span>
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
 
@@ -367,8 +370,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/10/16/Python——sys模块/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/16/Python——sys模块/" itemprop="commentCount"></span>
+                <a href="/2019/02/17/Python爬取猫眼TOP100的电影/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/17/Python爬取猫眼TOP100的电影/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -395,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  510
+                  1.3k
                 </span>
               
 
@@ -411,7 +414,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  6
                 </span>
               
             </div>
@@ -432,17 +435,29 @@
       
 
       
-        <h3 id="sys-模块"><a href="#sys-模块" class="headerlink" title="sys 模块"></a>sys 模块</h3><p>This module provides access to some objects used or maintained by the interpreter and to functions that interact strongly with the interpreter. </p>
-<hr>
-<h4 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> sys <span class="comment"># 记住要调用模块 此文章后边不再写</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.path</span><br><span class="line">[<span class="string">''</span>, <span class="string">'/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python37.zip'</span>, <span class="string">'/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7'</span>, <span class="string">'/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7/lib-dynload'</span>, <span class="string">'/usr/local/lib/python3.7/site-packages'</span>]</span><br><span class="line"><span class="comment"># 环境变量</span></span><br><span class="line"><span class="comment"># 可以通过 sys.path.append() 来添加</span></span><br></pre></td></tr></table></figure>
-<h4 id="查看已经加载的模块"><a href="#查看已经加载的模块" class="headerlink" title="查看已经加载的模块"></a>查看已经加载的模块</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.modules</span><br><span class="line"><span class="comment"># 你就可以看到你已经加载的模块，由于我这边加载的模块巨多，不写了</span></span><br></pre></td></tr></table></figure>
-<h4 id="获取终端调用时的参数"><a href="#获取终端调用时的参数" class="headerlink" title="获取终端调用时的参数"></a>获取终端调用时的参数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.argv</span><br><span class="line">[<span class="string">''</span>] <span class="comment"># 这里我在terminal中测试的代码</span></span><br><span class="line"><span class="comment"># 在pycharm, file:sys_argv.py</span></span><br><span class="line">print(sys.argv)  这里我们可以看到 sys.argv 是一个列表</span><br><span class="line"><span class="comment"># ['/Users/ooc/Desktop/Python/sys模块.py']</span></span><br><span class="line">print(sys.argv[<span class="number">0</span>])</span><br><span class="line"><span class="comment"># /Users/ooc/Desktop/Python/sys模块.py</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># file:sys_argv.py</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">print(sys.argv[<span class="number">2</span>])</span><br><span class="line"><span class="comment"># file: sys_argv.py</span></span><br><span class="line"><span class="comment"># file_path: /Users/ooc/Desktop/Python/sys_argv.py</span></span><br><span class="line"><span class="comment"># terminal</span></span><br><span class="line">oOCs-MBP:~ ooc$ python3 /Users/ooc/Desktop/Python/sys_argv.py <span class="number">1</span> <span class="number">4</span> <span class="number">9</span> <span class="number">10</span></span><br><span class="line"><span class="number">4</span> <span class="comment"># 获取终端调用时的参数 第一个元素是程序本身路径</span></span><br></pre></td></tr></table></figure>
-<h4 id="获取解释器的版本信息"><a href="#获取解释器的版本信息" class="headerlink" title="获取解释器的版本信息"></a>获取解释器的版本信息</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> sys</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.version</span><br><span class="line"><span class="string">'3.7.0 (default, Aug 22 2018, 15:22:33) \n[Clang 9.1.0 (clang-902.0.39.2)]'</span></span><br><span class="line"><span class="comment"># 当前解释器使用的信息</span></span><br></pre></td></tr></table></figure>
-<h4 id="获取当前平台名称"><a href="#获取当前平台名称" class="headerlink" title="获取当前平台名称"></a>获取当前平台名称</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.platform</span><br><span class="line">darwin  <span class="comment"># MacOS</span></span><br></pre></td></tr></table></figure>
-<h4 id="int类型支持的最大值"><a href="#int类型支持的最大值" class="headerlink" title="int类型支持的最大值"></a>int类型支持的最大值</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.maxsize <span class="comment"># 貌似python2中好像是，sys.maxint</span></span><br><span class="line"><span class="number">9223372036854775807</span></span><br></pre></td></tr></table></figure>
-<h4 id="最大的Unicode值"><a href="#最大的Unicode值" class="headerlink" title="最大的Unicode值"></a>最大的Unicode值</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.maxunicode</span><br><span class="line"><span class="number">1114111</span></span><br></pre></td></tr></table></figure>
-<h4 id="中间结束程序"><a href="#中间结束程序" class="headerlink" title="中间结束程序"></a>中间结束程序</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.exit() <span class="comment"># 默认为0</span></span><br><span class="line"><span class="comment"># 执行到这行代码时就退出程序</span></span><br><span class="line">If the status <span class="keyword">is</span> omitted <span class="keyword">or</span> <span class="keyword">None</span>, it defaults to zero (i.e., success).</span><br><span class="line">If the status <span class="keyword">is</span> an integer, it will be used <span class="keyword">as</span> the system exit status.</span><br><span class="line">If it <span class="keyword">is</span> another kind of object, it will be printed <span class="keyword">and</span> the system</span><br></pre></td></tr></table></figure>
-<h4 id="终端复制文件工具"><a href="#终端复制文件工具" class="headerlink" title="终端复制文件工具"></a>终端复制文件工具</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 原文件路径</span></span><br><span class="line">source = sys.argv[<span class="number">1</span>]</span><br><span class="line"><span class="comment"># 目标文件路径</span></span><br><span class="line">dispath = sys.argv[<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(source,<span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    data = f.read()</span><br><span class="line">    <span class="keyword">with</span> open(dispatch,<span class="string">'wb'</span>) <span class="keyword">as</span> f2:</span><br><span class="line">        f2.write(data)</span><br></pre></td></tr></table></figure>
+        <h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>提取出猫眼电影 TOP100 的电影名称、时间、评分、图片等信息，提取的站点为 <code>http://maoyan.com/board/4</code>，并将提取的结果以文件的形式保存下来。</p>
+<h2 id="抓取分析"><a href="#抓取分析" class="headerlink" title="抓取分析"></a>抓取分析</h2><p>打开抓取的站点，发现第一页显示排行1-10的电影，第二页显示排行11-20的电影，但是url发生明显改变变为<code>https://maoyan.com/board/4?offset=10</code>比之前的多了一个参数<code>offset=10</code>，再点击第三页发现<code>offset=20</code>，可以推断出规律，<code>offset</code>代表偏移量值，如果偏移量为n，那么电影序号就为（n+1） ~（n+10），所以当我们想获取top100的电影，就需要分开10次请求，这样获取不同的页面后，再通过正则表达式提取出相关的信息，就可以了获取TOP100的所有电影信息了。</p>
+<h2 id="抓取首页"><a href="#抓取首页" class="headerlink" title="抓取首页"></a>抓取首页</h2><p>抓取首页的源代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_one_page</span><span class="params">(url)</span>:</span></span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">'User-Agent'</span>:<span class="string">'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36'</span></span><br><span class="line">    &#125;</span><br><span class="line">    response = requests.get(url, headers = headers)</span><br><span class="line">    <span class="keyword">if</span> response.status_code == <span class="number">200</span>:</span><br><span class="line">        <span class="keyword">return</span> response.text</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></span><br><span class="line">    url = <span class="string">'http://maoyan.com/board/4'</span></span><br><span class="line">    html = get_one_page(url)</span><br><span class="line">    print(html)</span><br><span class="line">    </span><br><span class="line">run()</span><br></pre></td></tr></table></figure>
+<h2 id="正则提取"><a href="#正则提取" class="headerlink" title="正则提取"></a>正则提取</h2><p>获取首页的源代码之后，通过正则提取我们需要的信息。回到浏览器，再开发者模式下的Network监听组件中，查看源代码，我们可以发现一部电影的信息对应的源代码就是一个dd节点，我们用正则表达式来提取这里的一些电影信息。<img src="https://ws1.sinaimg.cn/large/006tKfTcgy1g09lt0j8rjj31ik0fyte5.jpg" alt="image-20190217183708327"></p>
+<ul>
+<li>提取它的排名信息，排名第一的电影为“霸王别姬”，它的排名信息在 class 为 board-index / board-index-1 的 i 节点内，这里采用非贪婪匹配提取 i 节点内的信息，正则表达式为：<code>&lt;dd&gt;.*board-index.*?&gt;(.*?)&lt;/i&gt;</code></li>
+<li>提取电影的图片，在后边的 a 标签内发现有两个 img 节点，经检查后发现，第二个 img 节点是电影封面，故这里提取第二个节点的 data-src 属性，正则表达式为：<code>&lt;dd&gt;.*board-index.*?&gt;(.*?)&lt;/i&gt;.*?data-src=&quot;(.*?)&quot;</code></li>
+<li>提取电影的名称，可以发现在后边的 class 为 name 的 p 节点中，其实这里有好几个地方都可以进行提取，书上提取了 a 节点中的文本信息，正则表达式为：<code>&lt;dd&gt;.*board-index.*?&gt;(.*?)&lt;/i&gt;.*?data-src=&quot;(.*?)&quot;.*?name.*?a.*?&gt;(.*?)&lt;/a&gt;</code></li>
+<li>再提取主演、发布时间、评分等内容时，都是同样的原理，最后的完整的正则表达式为：<code>&lt;dd&gt;.*board-index.*?&gt;(.*?)&lt;/i&gt;.*?data-src=&quot;(.*?)&quot;.*?name.*?a.*?&gt;(.*?)&lt;/a&gt;.*?star.*?&gt;(.*?)&lt;/p&gt;.*?releasetime.*?&gt;(.*?)&lt;/p&gt;.*?integer.*?&gt;(.*?)&lt;/i&gt;.*?fraction.*?&gt;(.*?)&lt;/i&gt;.*?&lt;/dd&gt;</code></li>
+</ul>
+<p>接下来，通过调用findall()方法提取出所有的内容：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_one_page</span><span class="params">(html)</span>:</span></span><br><span class="line">    pattern = re.compile(</span><br><span class="line">    <span class="string">'&lt;dd&gt;.*board-index.*?&gt;(.*?)&lt;/i&gt;.*?data-src="(.*?)".*?name.*?a.*?&gt;(.*?)&lt;/a&gt;.*?star.*?&gt;(.*?)&lt;/p&gt;.*?releasetime.*?&gt;(.*?)&lt;/p&gt;.*?integer.*?&gt;(.*?)&lt;/i&gt;.*?fraction.*?&gt;(.*?)&lt;/i&gt;.*?&lt;/dd&gt;'</span>,re.S</span><br><span class="line">    )</span><br><span class="line">    items = re.findall(pattern, html)</span><br><span class="line">    print(items)</span><br></pre></td></tr></table></figure>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1g09mg466qbj32100bsthx.jpg" alt="image-20190217185920478"></p>
+<p>可以看出当前提取出来的数据，还十分的乱，所以我们需要将匹配结果再处理一下，遍历提取结果并生成字典：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_one_page</span><span class="params">(html)</span>:</span></span><br><span class="line">    pattern = re.compile(<span class="string">'&lt;dd&gt;.*board-index.*?&gt;(.*?)&lt;/i&gt;.*?data-src="(.*?)".*?name.*?a.*?&gt;(.*?)&lt;/a&gt;.*?star.*?&gt;(.*?)&lt;/p&gt;.*?releasetime.*?&gt;(.*?)&lt;/p&gt;.*?integer.*?&gt;(.*?)&lt;/i&gt;.*?fraction.*?&gt;(.*?)&lt;/i&gt;.*?&lt;/dd&gt;'</span>,re.S)</span><br><span class="line">    items = re.findall(pattern, html)</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">        <span class="keyword">yield</span> &#123;</span><br><span class="line">            <span class="string">'index'</span>: item[<span class="number">0</span>],</span><br><span class="line">            <span class="string">'image'</span>: item[<span class="number">1</span>],</span><br><span class="line">            <span class="string">'title'</span>: item[<span class="number">2</span>].strip(),</span><br><span class="line">            <span class="string">'actor'</span>: item[<span class="number">3</span>].strip()[<span class="number">3</span>:],</span><br><span class="line">            <span class="string">'time'</span>: item[<span class="number">4</span>].strip()[<span class="number">5</span>:],</span><br><span class="line">            <span class="string">'score'</span>: item[<span class="number">5</span>].strip() + item[<span class="number">6</span>].strip()</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a>写入文件</h2><p>将提取的结果写入文件，通过 JSON库的 dumps() 方法实现字典的序列化，并指定 ensure_ascii 参数为 False，这样可以保证输出结果是中文形式而不是 Unicode编码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_to_file</span><span class="params">(content)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'result.txt'</span>, <span class="string">'a'</span>, encoding = <span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        print(type(json.dumps(content)))</span><br><span class="line">        f.write(json.dumps(content, ensure_ascii = <span class="keyword">False</span>) + <span class="string">'\n'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="run"><a href="#run" class="headerlink" title="run()"></a>run()</h2><p>通过 run() 方法来调用前面实现的方法，将单页的电影结果写入文件。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    url = <span class="string">'http://maoyan.com/board/4'</span></span><br><span class="line">    html = get_one_page(url)</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> parse_one_page(html):</span><br><span class="line">        write_to_file(item)</span><br></pre></td></tr></table></figure>
+<h2 id="分页爬取"><a href="#分页爬取" class="headerlink" title="分页爬取"></a>分页爬取</h2><p>因为抓取的是 猫眼TOP100 的电影，所以还需要遍历一下，给这个链接传入offset的参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(offset)</span>:</span></span><br><span class="line">    url = <span class="string">'http://maoyan.com/board/4?offset='</span> + str(offset)</span><br><span class="line">    html = get_one_page(url)</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> parse_one_page(html):</span><br><span class="line">        print(item)</span><br><span class="line">        write_to_file(item)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        main(offset=i * <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="整合代码"><a href="#整合代码" class="headerlink" title="整合代码"></a>整合代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">from</span> requests.exceptions <span class="keyword">import</span> RequestException</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_one_page</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        headers = &#123;</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36'</span></span><br><span class="line">        &#125;</span><br><span class="line">        response = requests.get(url, headers=headers)</span><br><span class="line">        <span class="keyword">if</span> response.status_code == <span class="number">200</span>:</span><br><span class="line">            <span class="keyword">return</span> response.text</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">    <span class="keyword">except</span> RequestException:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_one_page</span><span class="params">(html)</span>:</span></span><br><span class="line">    </span><br><span class="line">    pattern = re.compile(</span><br><span class="line">        <span class="string">'&lt;dd&gt;.*?board-index.*?&gt;(.*?)&lt;/i&gt;.*?data-src="(.*?)".*?name.*?a.*?&gt;(.*?)&lt;/a&gt;.*?star.*?&gt;(.*?)&lt;/p&gt;.*?releasetime.*?&gt;(.*?)&lt;/p&gt;.*?integer.*?&gt;(.*?)&lt;/i&gt;.*?fraction.*?&gt;(.*?)&lt;/i&gt;.*?&lt;/dd&gt;'</span>,re.S)</span><br><span class="line">    </span><br><span class="line">    items = re.findall(pattern, html)</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">        <span class="keyword">yield</span> &#123;</span><br><span class="line">            <span class="string">'index'</span>: item[<span class="number">0</span>],</span><br><span class="line">            <span class="string">'image'</span>: item[<span class="number">1</span>],</span><br><span class="line">            <span class="string">'title'</span>: item[<span class="number">2</span>].strip(),</span><br><span class="line">            <span class="string">'actor'</span>: item[<span class="number">3</span>].strip()[<span class="number">3</span>:],</span><br><span class="line">            <span class="string">'time'</span>: item[<span class="number">4</span>].strip()[<span class="number">5</span>:],</span><br><span class="line">            <span class="string">'score'</span>: item[<span class="number">5</span>].strip() + item[<span class="number">6</span>].strip()</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_to_file</span><span class="params">(content)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'result.txt'</span>, <span class="string">'a'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(json.dumps(content, ensure_ascii=<span class="keyword">False</span>) + <span class="string">'\n'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(offset)</span>:</span></span><br><span class="line">    url = <span class="string">'http://maoyan.com/board/4?offset='</span> + str(offset)</span><br><span class="line">    html = get_one_page(url)</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> parse_one_page(html):</span><br><span class="line">        print(item)</span><br><span class="line">        write_to_file(item)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        main(offset=i * <span class="number">10</span>)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -460,6 +475,8 @@
       
         <div class="post-tags">
           
+            <a href="/tags/爬虫/" rel="tag"># 爬虫</a>
+          
             <a href="/tags/Python/" rel="tag"># Python</a>
           
         </div>
@@ -473,8 +490,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/15/Python——datetime模块/" rel="next" title="Python——datetime模块">
-                <i class="fa fa-chevron-left"></i> Python——datetime模块
+              <a href="/2019/02/17/Python-坑之CERTIFICATE-VERIFY-FAILED/" rel="next" title="Python 坑之CERTIFICATE_VERIFY_FAILED">
+                <i class="fa fa-chevron-left"></i> Python 坑之CERTIFICATE_VERIFY_FAILED
               </a>
             
           </div>
@@ -482,10 +499,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/16/Python——random模块/" rel="prev" title="Python——random模块">
-                Python——random模块 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -648,7 +661,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#sys-模块"><span class="nav-number">1.</span> <span class="nav-text">sys 模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#环境变量"><span class="nav-number">1.1.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看已经加载的模块"><span class="nav-number">1.2.</span> <span class="nav-text">查看已经加载的模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取终端调用时的参数"><span class="nav-number">1.3.</span> <span class="nav-text">获取终端调用时的参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取解释器的版本信息"><span class="nav-number">1.4.</span> <span class="nav-text">获取解释器的版本信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取当前平台名称"><span class="nav-number">1.5.</span> <span class="nav-text">获取当前平台名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#int类型支持的最大值"><span class="nav-number">1.6.</span> <span class="nav-text">int类型支持的最大值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最大的Unicode值"><span class="nav-number">1.7.</span> <span class="nav-text">最大的Unicode值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#中间结束程序"><span class="nav-number">1.8.</span> <span class="nav-text">中间结束程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#终端复制文件工具"><span class="nav-number">1.9.</span> <span class="nav-text">终端复制文件工具</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目标"><span class="nav-number">1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抓取分析"><span class="nav-number">2.</span> <span class="nav-text">抓取分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抓取首页"><span class="nav-number">3.</span> <span class="nav-text">抓取首页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则提取"><span class="nav-number">4.</span> <span class="nav-text">正则提取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写入文件"><span class="nav-number">5.</span> <span class="nav-text">写入文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#run"><span class="nav-number">6.</span> <span class="nav-text">run()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分页爬取"><span class="nav-number">7.</span> <span class="nav-text">分页爬取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整合代码"><span class="nav-number">8.</span> <span class="nav-text">整合代码</span></a></li></ol></div>
             
 
           </div>
