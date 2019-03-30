@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="处理异常URLErrorURLError类来自urllib库的error模块（urllib.error.URLError）,它继承自OSError类，是error异常模块的基类，处理由request模块产生的异常。1234567from urllib import request, errortry:	response = request.urlopen(&apos;https://www.baidu.co">
+<meta name="description" content="处理异常URLErrorURLError类来自urllib库的error模块（urllib.error.URLError）,它继承自OSError类，是error异常模块的基类，处理由request模块产生的异常。1234567from urllib import request, errortry:    response = request.urlopen(&apos;https://www.baidu">
 <meta name="keywords" content="爬虫,Python,urllib">
 <meta property="og:type" content="article">
 <meta property="og:title" content="urllib —— 处理异常">
 <meta property="og:url" content="http://yoursite.com/2019/03/30/urllib —— 处理异常/index.html">
 <meta property="og:site_name" content="MakeUpStories.">
-<meta property="og:description" content="处理异常URLErrorURLError类来自urllib库的error模块（urllib.error.URLError）,它继承自OSError类，是error异常模块的基类，处理由request模块产生的异常。1234567from urllib import request, errortry:	response = request.urlopen(&apos;https://www.baidu.co">
+<meta property="og:description" content="处理异常URLErrorURLError类来自urllib库的error模块（urllib.error.URLError）,它继承自OSError类，是error异常模块的基类，处理由request模块产生的异常。1234567from urllib import request, errortry:    response = request.urlopen(&apos;https://www.baidu">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-30T13:41:07.179Z">
+<meta property="og:updated_time" content="2019-03-30T13:48:23.880Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="urllib —— 处理异常">
-<meta name="twitter:description" content="处理异常URLErrorURLError类来自urllib库的error模块（urllib.error.URLError）,它继承自OSError类，是error异常模块的基类，处理由request模块产生的异常。1234567from urllib import request, errortry:	response = request.urlopen(&apos;https://www.baidu.co">
+<meta name="twitter:description" content="处理异常URLErrorURLError类来自urllib库的error模块（urllib.error.URLError）,它继承自OSError类，是error异常模块的基类，处理由request模块产生的异常。1234567from urllib import request, errortry:    response = request.urlopen(&apos;https://www.baidu">
 
 
 
@@ -432,7 +432,7 @@
       
 
       
-        <h2 id="处理异常"><a href="#处理异常" class="headerlink" title="处理异常"></a>处理异常</h2><h3 id="URLError"><a href="#URLError" class="headerlink" title="URLError"></a>URLError</h3><p>URLError类来自urllib库的error模块（urllib.error.URLError）,它继承自OSError类，是error异常模块的基类，处理由request模块产生的异常。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> request, error</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	response = request.urlopen(<span class="string">'https://www.baidu.com'</span>)</span><br><span class="line"><span class="keyword">except</span> error.URLError <span class="keyword">as</span> e:</span><br><span class="line">	print(e.reason)</span><br><span class="line"><span class="comment"># [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:847)</span></span><br></pre></td></tr></table></figure></p>
+        <h2 id="处理异常"><a href="#处理异常" class="headerlink" title="处理异常"></a>处理异常</h2><h3 id="URLError"><a href="#URLError" class="headerlink" title="URLError"></a>URLError</h3><p>URLError类来自urllib库的error模块（urllib.error.URLError）,它继承自OSError类，是error异常模块的基类，处理由request模块产生的异常。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> request, error</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    response = request.urlopen(<span class="string">'https://www.baidu.com'</span>)</span><br><span class="line"><span class="keyword">except</span> error.URLError <span class="keyword">as</span> e:</span><br><span class="line">    print(e.reason)</span><br><span class="line"><span class="comment"># [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:847)</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="HTTPError"><a href="#HTTPError" class="headerlink" title="HTTPError"></a>HTTPError</h3><p>HTPError是URLError的子类，专门用来处理HTTP请求的错误，它有3个属性：</p>
 <ul>
 <li>code:返回HTTP状态码</li>
