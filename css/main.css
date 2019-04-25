@@ -1880,7 +1880,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #86f1c6;
+  background: #e590ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2989,7 +2989,7 @@ hr {
   }
 }
 body {
-  background: url("https://ws4.sinaimg.cn/large/006tNbRwly1fw5450x6xwj31hc0xc1kx.jpg");
+  background: url("https://source.unsplash.com/random/1600*900");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 50% 50%;
